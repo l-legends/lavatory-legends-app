@@ -5,4 +5,4 @@ https://trello.com/b/ggXWCtFA/react-project-m2
 
 # Moodboard
 
-![Moodboard](./lavatory-legends-moodboard.png)
+![Moodboard](./img/lavatory-legends-moodboard.pnglavatory-legends-moodboard.png)
