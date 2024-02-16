@@ -7,7 +7,7 @@ import AboutPage from './pages/AboutPage';
 import DetailsPage from './pages/DetailsPage';
 import AddToilet from './pages/AddToiletPage';
 import NotFoundPage from './pages/NotFoundPage';
-import Footer from './pages/Footer';
+import Footer from "./components/Footer";
 
 
 
