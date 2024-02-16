@@ -6,28 +6,25 @@ import axios from "axios";
 
 function ListAll() {
 
-    const database = "https://lavatory-legends.adaptable.app/bathrooms"
+    const database = "https://lavatory-legends.adaptable.app/lavatories"
 
     const [lavatories, setLavatories] = useState(null);
-    
+
     const getLavatories = () => {
         axios.get(database)
             .then((response) => {
                 setLavatories(response.data);
-                console.log(typeof response.data);
+                console.log(response.data);
             })
-            .catch((error) => { 
-                console.log(error) });
+            .catch((error) => {
+                console.log(error)
+            });
     };
     useEffect(() => {
         getLavatories();
     }, []);
 
-    if(Array.isArray(lavatories)) {
-        console.log('is an array');
-    } else {
-        console.log('is not an array');
-    }
+
 
     //handleEdit
     //handleDelete
@@ -37,15 +34,20 @@ function ListAll() {
 
         <div className="lavatory-card">
 
-            { lavatories === null
-            ? <p>Loading</p>
-            :  lavatories.map((lavatory) => {
+            {lavatories === null
+                ? <p>Lavatories loading</p>
+                : lavatories.map((lavatory) => {
                     return (
                         <div key={lavatory.id} className="lavatory-card">
-                            <h2>{lavatory.name}</h2>
-                            <p>{lavatory.description}</p>
-                            <p>{lavatory.location}</p>
-                            {/* <div className="btn-lavatory-card">
+                            <Link to={`/lavatories/${lavatory.id}`}>
+                                <img src={lavatory.imageURL} />
+                                <h2>{lavatory.title}</h2>
+                                <p>{lavatory.description}</p>
+                                <p>{lavatory.location.country}</p>
+                            </Link>
+
+                            {/*<p>{lavatory.tags[1]}</p>
+                              <div className="btn-lavatory-card">
                             <button onClick={handleEdit}>Edit</button>
                             <button onClick={handleDelete}>Delete</button>
                             <button onClick={handleReview}>Review</button>

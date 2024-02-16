@@ -6,19 +6,18 @@ function NavBar() {
 
     return (
         <>
-        <div className="navbar">
-             <div className="logo">
-                <Link to="/">
-                    <img src={logo} />
-                </Link>
+            <div className="header">
+                <div className="logo">
+                    <Link to="/">
+                        <img src={logo} />
+                    </Link>
+                </div>
+                <div className="topNavigation">
+                    <Link to="/">Home</Link>
+                    <Link to="/about">About</Link>
+                    <Link to="/lavatories/create/:id">Create</Link>
+                </div>
             </div>
-        </div>
-
-        <div className="navigation">
-            <Link to="/about">About</Link>
-            <Link to="/lavatories/create/:id">Submit your Lavatory</Link>
-        </div>
-
         </>
     )
 }
