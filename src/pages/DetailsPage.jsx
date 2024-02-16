@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 
 function DetailsPage() {
-    const database = "https://lavatory-legends.adaptable.app/lavatories"
 
+    // USEFUL VARIABLES
+    const database = "https://lavatory-legends.adaptable.app/lavatories"
     const [lavatory, setLavatory] = useState(null);
     const { id } = useParams();
+    const navigate = useNavigate();
+    
 
+    // GET LAVATORY
     const getLavatory = () => {
         axios.get(`${database}/${id}`)
             .then((response) => {
@@ -22,6 +26,17 @@ function DetailsPage() {
         getLavatory();
     }, [id]);
 
+    // HANDLE DELETE
+    const handleDelete = () => {
+        axios.delete(`${database}/${id}`)
+            .then((response) => {
+                navigate("/")
+                console.log(response);
+            })
+            .catch((error) => {
+                console.log(error)
+            });
+    }; 
 
 
 
@@ -40,6 +55,7 @@ function DetailsPage() {
                             <p>{lavatory.location.place}</p>
                             <p>{lavatory.location.city}</p>
                             <p>{lavatory.location.country}</p>
+                            <button className="Delete" onClick={handleDelete}>Delete</button>
                         </>
                     )
                 }
