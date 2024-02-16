@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ListAll from "../components/ListAll";
 
-function HomePage () {
+function HomePage() {
 
     return (
         <>
-        <h1>Lavatory Legends</h1>
-        <p>Bathroom Tourism</p>
+            <h1>All Lavatories </h1>
+            <ListAll />
         </>
-
     );
 }
 

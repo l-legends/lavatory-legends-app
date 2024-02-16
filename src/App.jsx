@@ -8,11 +8,11 @@ import DetailsPage from './pages/DetailsPage';
 import AddToilet from './pages/AddToiletPage';
 import NotFoundPage from './pages/NotFoundPage';
 import Footer from "./components/Footer";
+import ListAll from './components/ListAll';
 
 
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
