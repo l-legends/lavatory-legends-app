@@ -47,6 +47,7 @@ function DetailsPage() {
                     ? <p>Lavatories loading...</p>
                     : (
                         <>
+                            <Link to={'/'}>Back to All Lavatories</Link>
                             <img src={lavatory.imageURL} />
                             <br/>
                             <label>{lavatory.tags[0]} {lavatory.tags[1]} {lavatory.tags[2]} {lavatory.tags[3]}</label>

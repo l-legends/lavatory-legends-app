@@ -32,7 +32,7 @@ function ListAll() {
 
     return (
 
-        <div className="lavatory-card">
+        <div className="lavatory-body">
 
             {lavatories === null
                 ? <p>Lavatories loading</p>
