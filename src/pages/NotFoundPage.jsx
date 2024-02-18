@@ -5,7 +5,7 @@ function NotFoundPage () {
 
     return (
         <>
-        <h1>We messed up again!</h1>
+        <h1>We messed up again, you idiot!!</h1>
         <p>Beer Challenge?</p>
         </>
 

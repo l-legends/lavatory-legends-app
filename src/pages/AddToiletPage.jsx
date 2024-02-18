@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import AddToiletForm from "../components/AddToilet";
 
 
 function AddToilet() {
@@ -7,7 +8,7 @@ function AddToilet() {
     return (
         <>
             <h1>Add a new legendary lavatory</h1>
-            <p>This is awesome!</p>
+            <AddToiletForm />
         </>
     );
 }
