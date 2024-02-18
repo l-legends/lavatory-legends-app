@@ -65,21 +65,23 @@ function AddToiletForm() {
         <>
             <div className="addToiletForm">
                 <form onSubmit={handleSubmit}>
-                    <div>
+                    <div className="addToiletFormElements">
                         <label>Name
+                            <br />
                             <input
                                 type="text"
                                 name="title"
-                                placeholder="Add a descriptive title"
+                                placeholder="Add a title, e.g. comfy toilet"
                                 value={title}
                                 onChange={handleTitle}
                             />
                         </label>
                     </div>
-                    <div>
+                    <div className="addToiletFormElements">
                         <label>Description
+                            <br />
                             <input
-                                type="text"
+                                type="textarea"
                                 name="description"
                                 placeholder="Add a description ~ 100 words"
                                 value={description}
@@ -87,19 +89,21 @@ function AddToiletForm() {
                             />
                         </label>
                     </div>
-                    <div>
+                    <div className="addToiletFormElements">
                         <label>Place
+                            <br />
                             <input
                                 type="text"
                                 name="locationPlace"
-                                placeholder="Add the name of the place/bar/restaurant here"
+                                placeholder="In which bar/restaurant/place is this toilet?"
                                 value={locationPlace}
                                 onChange={handleLocationPlace}
                             />
                         </label>
                     </div>
-                    <div>
+                    <div className="addToiletFormElements">
                         <label>City
+                            <br />
                             <input
                                 type="text"
                                 name="locationCity"
@@ -109,8 +113,9 @@ function AddToiletForm() {
                             />
                         </label>
                     </div>
-                    <div>
+                    <div className="addToiletFormElements">
                         <label>Country
+                            <br />
                             <input
                                 type="text"
                                 name="locationCountry"
@@ -120,8 +125,9 @@ function AddToiletForm() {
                             />
                         </label>
                     </div>
-                    <div>
+                    <div className="addToiletFormElements">
                         <label>Tags
+                            <br />
                             <input
                                 type="text"
                                 name="tags"
@@ -131,17 +137,19 @@ function AddToiletForm() {
                             />
                         </label>
                     </div>
-                    <div>
+                    <div className="addToiletFormElements">
                         <label>Image
+                            <br />
                             <input
                                 type="text"
                                 name="imageURL"
-                                placeholder="Add the image URL here"
+                                placeholder="Place the URL here, e.g.https://my-foto.com"
                                 value={imageURL}
                                 onChange={handleImageURL}
                             />
                         </label>
                     </div>
+                    <br />
                     <button type="submit">Add new lavatory</button>
                 </form>
             </div>
