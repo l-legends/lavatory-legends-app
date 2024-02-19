@@ -10,11 +10,14 @@ function Footer() {
         <>
             <div className="Footer">
                 <Link to="/">
-                    <img src={logo} alt="Logo" />
+                    <img src={logo} alt="Logo" className="logo-footer"/>
                 </Link>
-                <p>© 2024 Lavatory Legends. All rights reserved.</p>
+                <p className="bathroom-tourism">Bathroom Tourism<br/>© 2024 Lavatory Legends. </p>
+                
+
+
                 <Link to="https://github.com/l-legends/lavatory-legends-app">
-                    <img src={github} alt="GitHub Logo" />
+                    <img src={github} alt="GitHub Logo" className="github-logo"/>
                 </Link>
             </div >
         </>

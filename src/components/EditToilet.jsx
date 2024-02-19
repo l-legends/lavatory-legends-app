@@ -19,13 +19,6 @@ function EditToilet() {
         imageURL: ""
     });
 
-     //const handleChange = (event) => {
-     //   const name = event.target.name;
-     //   const value = event.target.value;
-     //   setEditLavatory(values => ({...values, [name]: value}))
-     //   console.log(name, value)
-    //}
-
     const handleChange = (event) => {
         const { name, value } = event.target;
         setEditLavatory((prevLavatory) => {
@@ -67,19 +60,6 @@ function EditToilet() {
     // useful const
     const database = "https://lavatory-legends.adaptable.app/lavatories"
     const navigate = useNavigate();
-    
-     /* const [lavatory, setLavatory] = useState({
-        title: "",
-        description: "",
-        location: {
-            place: "",
-            city: "",
-            country: ""
-        },
-        tags: "",
-        imageURL: ""
-    });
-*/
 
     useEffect(() => {
         const getLavatory = async () => {
