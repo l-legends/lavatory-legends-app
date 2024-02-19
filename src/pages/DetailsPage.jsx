@@ -61,7 +61,7 @@ function DetailsPage() {
                             <p>{lavatory.location.country}</p>
                             <Link to={`/lavatories/edit/${lavatory.id}`}>
                                 <button>
-                                    <img src={editbtn} />
+                                    <img className="edit-btn" src={editbtn} />
                                 </button>
                             </ Link>
                             <button className="Delete" onClick={handleDelete}>Delete</button>

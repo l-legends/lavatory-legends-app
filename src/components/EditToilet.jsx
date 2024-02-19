@@ -9,107 +9,190 @@ function EditToilet() {
 
     const { id } = useParams();
 
-   // useful const
-   const database = "https://lavatory-legends.adaptable.app/lavatories"
-   const navigate = useNavigate();
-   // const [lavatories, setLavatories] = useState(null); // set state
-   const [lavatory, setLavatory] = useState({
-    title: "",
-    description: "",
-    location: {
-        place: "",
-        city: "",
-        country: "" 
-    },
-    tags: "",
-    imageURL: ""
-});
-
-   // After edition
-   const [editedTitle, setEditedTitle] = useState("");
-   //const [editedDescription, setEditedDescription] = useState("");
-   //const [editedLocationPlace, setEditedLocationPlace] = useState("");
-   //const [editedLocationCity, setEditedLocationCity] = useState("");
-   //const [editedLocationCountry, setEditedLocationCountry] = useState("");
-   ///const [editedTags, setEditedTags] = useState("");
-   //const [editedImageURL, setEditedImageURL] = useState("");
+    // useful const
+    const database = "https://lavatory-legends.adaptable.app/lavatories"
+    const navigate = useNavigate();
+    // const [lavatories, setLavatories] = useState(null); // set state
+    const [lavatory, setLavatory] = useState({
+        title: "",
+        description: "",
+        location: {
+            place: "",
+            city: "",
+            country: ""
+        },
+        tags: "",
+        imageURL: ""
+    });
 
 
-   // Handler function for the form
-   const editTitle = (e) => setEditedTitle(e.target.value)
-  // const editDescription = (e) => setEditedDescription(e.target.value)
-  // const editLocationPlace = (e) => setEditedLocationPlace(e.target.value)
-  // const editLocationCity = (e) => setEditedLocationCity(e.target.value)
-  // const editLocationCountry = (e) => setEditedLocationCountry(e.target.value)
-  // const editTags = (e) => setEditedTags(e.target.value)
-  // const editImageURL = (e) => setEditedImageURL(e.target.value)
+    useEffect(() => {
+        const getLavatory = async () => {
+            try {
+                const response = await axios.get(`${database}/${id}`);
+                setLavatory(response.data);
+            } catch (error) {
+                console.error("Error fetching lavatory data:", error);
+            }
+        };
+        getLavatory();
+    }, [database, id]);
+
+    // Edit title
+    const handleTitleChange = (e) => {
+        setLavatory((prevLavatory) => ({
+            ...prevLavatory,
+            title: e.target.value
+        }));
+    };
+    // Edit description
+    const handleDescriptionChange = (e) => {
+        setLavatory((prevLavatory) => ({
+            ...prevLavatory,
+            description: e.target.value
+        }));
+    };
+    // Edit location: place
+    const handleLocPlaceChange = (e) => {
+        const newLoc = {...lavatory.location, place: e.target.value}
+        setLavatory((prevLavatory) => ({
+            ...prevLavatory,
+            location: newLoc
+        }));
+    };
+    // Edit location: city
+    const handleLocCityChange = (e) => {
+        const newLoc = {...lavatory.location, city: e.target.value}
+        setLavatory((prevLavatory) => ({
+            ...prevLavatory,
+            location: newLoc
+        }));
+    }; 
+    // Edit location: country
+    const handleLocCountryChange = (e) => {
+        const newLoc = {...lavatory.location, country: e.target.value}
+        setLavatory((prevLavatory) => ({
+            ...prevLavatory,
+            location: newLoc
+        }));
+    };
+    // Edit tags
+    const handleTagsChange = (e) => {
+        setLavatory((prevLavatory) => ({
+            ...prevLavatory,
+            tags: e.target.value
+        }));
+    };
+    // Edit image
+    const handleImgChange = (e) => {
+        setLavatory((prevLavatory) => ({
+            ...prevLavatory,
+            imageURL: e.target.value
+        }));
+    };
 
 
-   useEffect(() => {
-    const getLavatory = async () => {
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
         try {
-            const response = await axios.get(`${database}/${id}`);
-            setLavatory(response.data);
-        } catch (error) {
-            console.error("Error fetching lavatory data:", error);
+            await axios.put(`${database}/${id}`, lavatory);
+            navigate(`/lavatories/${id}`);
+            console.log(lavatory)
+        }
+        catch (e) {
+            console.log(e)
         }
     };
-    getLavatory();
-}, [database, id]);
 
-    // TEST
-const handleTitleChange = (e) => {
-    setLavatory((prevLavatory) => ({
-        ...prevLavatory,
-        title: e.target.value
-    }));
-};
-
-   const handleSubmit = async (e) => {
-       e.preventDefault();
-
-       try {
-        await axios.put(`${database}/${id}`, lavatory);
-        navigate(`/lavatories/${id}`);
-        console.log(lavatory)
- /* 
-       const editedLavatory = {
-           title: editedTitle,
-         description: editedDescription,
-           location: {
-               place: editLocationPlace,     //from const useState
-               city: editLocationCity,       //from const useState
-               country: editLocationCountry  //from const useState
-           },
-           tags: editedTags.split(","),    // We've got an input string. Tags should be separated by comma. This converts the string to our array. Maybe we'll find a better solution with preselected?
-           imageURL: editedImageURL*/
-       }
-       catch (e) {
-        console.log(e)
-    }
-
-     //  setEditedTitle(editTitle);
-     //  navigate(`/lavatories/${id}`)
-   };
-
-   return (
-    <div className="editToiletForm">
+    return (
+        <div className="editToiletForm">
             <form onSubmit={handleSubmit}>
-                <div className="editToiletFormElement">
-                    <label>Name
-                        <br />
-                        <input
-                            type="text"
-                            name="title"
-                            value={lavatory.title}
-                            onChange={handleTitleChange} 
-                        />
-                    </label>
-                </div>
+                <div className="editToiletFormElements">
+                    <div className="addToiletFormElements">
+                        <label>Name
+                            <br />
+                            <input
+                                type="text"
+                                name="title"
+                                value={lavatory.title}
+                                onChange={handleTitleChange}
+                            />
+                        </label>
+                    </div>
+                    <div className="editToiletFormElements">
+                        <div className="addToiletFormElements"></div>
+                        <label>Description
+                            <br />
+                            <input
+                                type="text"
+                                name="description"
+                                value={lavatory.description}
+                                onChange={handleDescriptionChange}
+                            />
+                        </label>
+                    </div>
+                    <div className="editToiletFormElements">
+                        <label>Place
+                            <br />
+                            <input
+                                type="text"
+                                name="locationPlace"
+                                value={lavatory.location.place}
+                                onChange={handleLocPlaceChange}
+                            />
+                        </label>
+                    </div>
+                    <div className="editToiletFormElements">
+                        <label>City
+                            <br />
+                            <input
+                                type="text"
+                                name="locationCity"
+                                value={lavatory.location.city}
+                                onChange={handleLocCityChange}
+                            />
+                        </label>
+                    </div>
+                    <div className="editToiletFormElements">
+                        <label>Country
+                            <br />
+                            <input
+                                type="text"
+                                name="locationCountry"
+                                value={lavatory.location.country}
+                                onChange={handleLocCountryChange}
+                            />
+                        </label>
+                    </div>
+                    <div className="editToiletFormElements">
+                        <label>Tags
+                            <br />
+                            <input
+                                type="text"
+                                name="tags"
+                                value={lavatory.tags}
+                                onChange={handleTagsChange}
+                            />
+                        </label>
+                    </div>
+                    <div className="editToiletFormElements">
+                        <label>Image
+                            <br />
+                            <input
+                                type="text"
+                                name="imageURL"
+                                value={lavatory.imageURL}
+                                onChange={handleImgChange}
+                            />
+                        </label>
+                    </div>
+                </div >
                 <button type="submit">Save Changes</button>
-            </form>
-    </div>
-);
+            </form >
+        </div >
+    );
 
 };
 
