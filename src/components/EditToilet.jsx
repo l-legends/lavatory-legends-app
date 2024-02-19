@@ -7,13 +7,7 @@ import axios from "axios";
 
 function EditToilet() {
 
-    const { id } = useParams();
-
-    // useful const
-    const database = "https://lavatory-legends.adaptable.app/lavatories"
-    const navigate = useNavigate();
-    // const [lavatories, setLavatories] = useState(null); // set state
-    const [lavatory, setLavatory] = useState({
+    const [editLavatory, setEditLavatory] = useState({
         title: "",
         description: "",
         location: {
@@ -25,12 +19,73 @@ function EditToilet() {
         imageURL: ""
     });
 
+     //const handleChange = (event) => {
+     //   const name = event.target.name;
+     //   const value = event.target.value;
+     //   setEditLavatory(values => ({...values, [name]: value}))
+     //   console.log(name, value)
+    //}
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setEditLavatory((prevLavatory) => {
+
+            if (name.includes('.')) {
+                const [parent, child] = name.split('.');
+                    return {
+                        ...prevLavatory,
+    
+                    [parent]: {
+                        ...prevLavatory[parent],
+                        [child]: value
+                    }
+                };
+            } else {
+                return { ...prevLavatory, [name]: value };
+            }
+        });
+    };
+    
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        try {
+            await axios.put (`${database}/${id}`, editLavatory);
+            navigate(`/lavatories/${id}`);
+        }
+        catch (e) {
+            console.log(e)
+        }
+
+
+    }
+    
+
+    const { id } = useParams();
+
+    // useful const
+    const database = "https://lavatory-legends.adaptable.app/lavatories"
+    const navigate = useNavigate();
+    
+     /* const [lavatory, setLavatory] = useState({
+        title: "",
+        description: "",
+        location: {
+            place: "",
+            city: "",
+            country: ""
+        },
+        tags: "",
+        imageURL: ""
+    });
+*/
 
     useEffect(() => {
         const getLavatory = async () => {
             try {
                 const response = await axios.get(`${database}/${id}`);
-                setLavatory(response.data);
+                setEditLavatory(response.data);
             } catch (error) {
                 console.error("Error fetching lavatory data:", error);
             }
@@ -38,6 +93,11 @@ function EditToilet() {
         getLavatory();
     }, [database, id]);
 
+
+/*
+
+
+   
     // Edit title
     const handleTitleChange = (e) => {
         setLavatory((prevLavatory) => ({
@@ -106,6 +166,8 @@ function EditToilet() {
         }
     };
 
+    */
+
     return (
         <div className="editToiletForm">
             <form onSubmit={handleSubmit}>
@@ -116,8 +178,8 @@ function EditToilet() {
                             <input
                                 type="text"
                                 name="title"
-                                value={lavatory.title}
-                                onChange={handleTitleChange}
+                                value={editLavatory.title}
+                                onChange={handleChange}
                             />
                         </label>
                     </div>
@@ -128,8 +190,8 @@ function EditToilet() {
                             <input
                                 type="text"
                                 name="description"
-                                value={lavatory.description}
-                                onChange={handleDescriptionChange}
+                                value={editLavatory.description || ""}
+                                onChange={handleChange}
                             />
                         </label>
                     </div>
@@ -138,9 +200,9 @@ function EditToilet() {
                             <br />
                             <input
                                 type="text"
-                                name="locationPlace"
-                                value={lavatory.location.place}
-                                onChange={handleLocPlaceChange}
+                                name="location.place"
+                                value={editLavatory.location.place || ""}
+                                onChange={handleChange}
                             />
                         </label>
                     </div>
@@ -149,9 +211,9 @@ function EditToilet() {
                             <br />
                             <input
                                 type="text"
-                                name="locationCity"
-                                value={lavatory.location.city}
-                                onChange={handleLocCityChange}
+                                name="location.city"
+                                value={editLavatory.location.city || ""}
+                                onChange={handleChange}
                             />
                         </label>
                     </div>
@@ -160,9 +222,9 @@ function EditToilet() {
                             <br />
                             <input
                                 type="text"
-                                name="locationCountry"
-                                value={lavatory.location.country}
-                                onChange={handleLocCountryChange}
+                                name="location.country"
+                                value={editLavatory.location.country|| ""}
+                                onChange={handleChange}
                             />
                         </label>
                     </div>
@@ -172,8 +234,8 @@ function EditToilet() {
                             <input
                                 type="text"
                                 name="tags"
-                                value={lavatory.tags}
-                                onChange={handleTagsChange}
+                                value={editLavatory.tags|| ""}
+                                onChange={handleChange}
                             />
                         </label>
                     </div>
@@ -183,8 +245,8 @@ function EditToilet() {
                             <input
                                 type="text"
                                 name="imageURL"
-                                value={lavatory.imageURL}
-                                onChange={handleImgChange}
+                                value={editLavatory.imageURL || ""}
+                                onChange={handleChange}
                             />
                         </label>
                     </div>
