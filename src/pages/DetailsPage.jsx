@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import editbtn from "../img/edit-btn.png"
+import EditToilet from "../components/EditToilet";
 
 
 function DetailsPage() {
@@ -10,7 +12,7 @@ function DetailsPage() {
     const [lavatory, setLavatory] = useState(null);
     const { id } = useParams();
     const navigate = useNavigate();
-    
+
 
     // GET LAVATORY
     const getLavatory = () => {
@@ -36,7 +38,7 @@ function DetailsPage() {
             .catch((error) => {
                 console.log(error)
             });
-    }; 
+    };
 
 
 
@@ -48,14 +50,20 @@ function DetailsPage() {
                     : (
                         <>
                             <Link to={'/'}>Back to All Lavatories</Link>
+
                             <img src={lavatory.imageURL} />
-                            <br/>
+                            <br />
                             <label>{lavatory.tags[0]} {lavatory.tags[1]} {lavatory.tags[2]} {lavatory.tags[3]}</label>
                             <h1>{lavatory.title}</h1>
                             <p>{lavatory.description}</p>
                             <p>{lavatory.location.place}</p>
                             <p>{lavatory.location.city}</p>
                             <p>{lavatory.location.country}</p>
+                            <Link to={`/lavatories/edit/${lavatory.id}`}>
+                                <button>
+                                    <img src={editbtn} />
+                                </button>
+                            </ Link>
                             <button className="Delete" onClick={handleDelete}>Delete</button>
                         </>
                     )
@@ -63,7 +71,7 @@ function DetailsPage() {
 
 
 
-            </div>
+            </div >
         </>
 
     );

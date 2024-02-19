@@ -8,7 +8,6 @@ function HomePage() {
     return (
         <>
             <h1>All Lavatories </h1>
-            <FilterByTags />
             <ListAll />
         </>
     );
