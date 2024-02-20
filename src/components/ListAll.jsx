@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
+import SearchBar from "./Searchbar";
 
-// edit btn needs to be there
 
 function ListAll() {
 
@@ -25,13 +25,9 @@ function ListAll() {
     }, []);
 
 
-
-    //handleEdit
-    //handleDelete
-    //handleReview
-
     return (
-
+        <>
+        <SearchBar />
         <div className="lavatory-body">
 
             {lavatories === null
@@ -45,13 +41,6 @@ function ListAll() {
                                 <p>{lavatory.description}</p>
                                 <p>{lavatory.location.country}</p>
                             </Link>
-
-                            {/*<p>{lavatory.tags[1]}</p>
-                              <div className="btn-lavatory-card">
-                            <button onClick={handleEdit}>Edit</button>
-                            <button onClick={handleDelete}>Delete</button>
-                            <button onClick={handleReview}>Review</button>
-                        </div> */}
                         </div>
 
                     )
@@ -62,7 +51,7 @@ function ListAll() {
 
 
         </div>
-
+        </>
     )
 }
 

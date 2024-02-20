@@ -19,7 +19,6 @@ function App() {
   return (
     <>
       <NavBar />
-      <SearchBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
