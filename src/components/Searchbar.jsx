@@ -77,6 +77,7 @@ function SearchBar() {
             />
             <button onClick={handleSearchButton}>Search</button>
             <br />
+            <div className="search-results">
             {filteredLavatories.length === 0
                 ? <p>There are no lavatories to discover. </p>
                 : filteredLavatories.map((filteredLavatory) => (
@@ -89,6 +90,9 @@ function SearchBar() {
                             </Link>
                     </div>
                 ))}
+                </div>
+                <br/>
+                <h1> All the Legends </h1>
         </div>
 
     )
