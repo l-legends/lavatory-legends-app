@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 //import Simona from '../img/simona-about.png';
 import GitHub from '../img/github-logo.png';
 
-function NotFound() {
+function NotFound( { beerCount, setBeerCount} ) {
 
     const [clickCountPauline, setClickCountPauline] = useState(0)
     const [clickCountSimona, setclickCountSimona] = useState(0)
@@ -13,12 +13,15 @@ function NotFound() {
     const handlePaulineClick = (e) => {
         e.preventDefault();
         setClickCountPauline(clickCountPauline + 1);
-    };
-
-    const handleSimonaClick = (e) => {
+        setBeerCount(prevCount => ({ ...prevCount, pauline: prevCount.pauline + 1 }));
+      };
+      
+      
+      const handleSimonaClick = (e) => {
         e.preventDefault();
         setclickCountSimona(clickCountSimona + 1);
-    };
+        setBeerCount(prevCount => ({ ...prevCount, simona: prevCount.simona + 1 }));
+      };
 
 
     return (
