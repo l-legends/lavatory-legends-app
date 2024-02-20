@@ -50,8 +50,8 @@ function FilterByTags() {
 
     return (
 
-        <div className="lavatory-body">
-            <button onClick={filteredByTagClean}>{tagToFilter}</button>       
+        <div className="lavatory-body"> 
+            {/*<button onClick={filteredByTagClean}>{tagToFilter}</button>    */}   
             <br />
             {filteredLavatories.length === 0                                    // To check if there is any lavatory with that tag
                 ? <p>There are no {tagToFilter} lavatories to discover. </p>    // If there are no lavatories with this tag, this message gets displayed.

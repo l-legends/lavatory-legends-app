@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import editbtn from "../img/edit-btn.png"
+import editbtn from "../img/edit-btn.png";
 import EditToilet from "../components/EditToilet";
+import FilterByTags from "../components/FilterByTags";
 
 
 function DetailsPage() {
@@ -53,7 +54,11 @@ function DetailsPage() {
 
                             <img src={lavatory.imageURL} />
                             <br />
-                            <label>{lavatory.tags[0]} {lavatory.tags[1]} {lavatory.tags[2]} {lavatory.tags[3]}</label>
+                            {lavatory.tags.map((tag, index) => (
+                                <Link key={index} to={`/lavatories/tag/${tag}`}>
+                                    <label className="tagsOnDetailPage">{tag}</label>
+                                </Link>
+                            ))}
                             <h1>{lavatory.title}</h1>
                             <p>{lavatory.description}</p>
                             <p>{lavatory.location.place}</p>
