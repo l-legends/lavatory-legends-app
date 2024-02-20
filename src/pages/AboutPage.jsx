@@ -33,7 +33,7 @@ function AboutPage () {
             </a>
             </div>
             <h5>The one who fix the code</h5>
-            <p>SEO, Marketing Specialist, Web Developer, Yoga Teacher, Kambucha Addict</p>
+            <p>SEO, Marketing Specialist, Web Developer, Yoga Teacher, Kombucha Addict</p>
             <br/>
             
         </div>

@@ -241,12 +241,11 @@ h6 {
   flex-wrap: wrap;
 }
 
-.about-name {
-  font-size: 1.5em;
-  font-weight: 600;
-  color: #264653;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
+.about-card {
+  padding: 2em;
+  border: 1px solid #000;
+  border-radius: 10px;
+  box-shadow: 0 0 5px 0 #454545;
+  margin: 1em;
+  flex-wrap: wrap; 
 }
