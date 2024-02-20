@@ -10,5 +10,5 @@ https://trello.com/b/ggXWCtFA/react-project-m2
 
 # Moodboard
 
-![Moodboard](./img/lavatory-legends-moodboard.png)
+![Moodboard](./src/img/lavatory-legends-moodboard.png)
 
