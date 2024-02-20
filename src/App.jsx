@@ -10,6 +10,7 @@ import EditToilet from './pages/EditToiletPage';
 import NotFoundPage from './pages/NotFoundPage';
 import Footer from "./components/Footer";
 import ListAll from './components/ListAll';
+import SearchBar from './components/Searchbar';
 
 
 
@@ -18,6 +19,7 @@ function App() {
   return (
     <>
       <NavBar />
+      <SearchBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
