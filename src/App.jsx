@@ -11,6 +11,7 @@ import NotFoundPage from './pages/NotFoundPage';
 import FilterByTagPage from './pages/FilteredTagsPage';
 import Footer from "./components/Footer";
 import ListAll from './components/ListAll';
+import SearchBar from './components/Searchbar';
 
 
 
