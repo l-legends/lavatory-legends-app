@@ -9,8 +9,8 @@ function FilterByTags() {
     const database = "https://lavatory-legends.adaptable.app/lavatories"
 
     const [lavatories, setLavatories] = useState(null);
-    const [filteredLavatories, setFilteredLavatories] = useState([]); // we need an array here > Later: to use map, filter .length
-    let tagToFilter = "clean";  // Place the tag you want to filter after here.
+    const [filteredLavatories, setFilteredLavatories] = useState([]); // we need an array here > Later: to use map, filter
+    let tagToFilter = ["clean", "accessible", "design", "spacious"];  // Place the tags you want to filter after in the array.
 
 
     // Get all lavatories first
@@ -24,13 +24,11 @@ function FilterByTags() {
             });
     };
 
-
-    // Filter all lavatories by tag.
-    const filteredByTagClean = () => {
-        if (lavatories) {
-            const cleanLavatories = lavatories.filter(lavatory => lavatory.tags.includes(tagToFilter))
-            setFilteredLavatories(cleanLavatories);
-            console.log(cleanLavatories)
+    // Filter through all lavatories based on the tagToFilter array that is given in line 13. 
+    const filteredByTags = () => {
+        for (let i = 0; i < tagToFilter.length; i++) {
+            const filteredLavatories = lavatories.filter(lavatory => lavatory.tags.includes(tagToFilter[i]))
+            setFilteredLavatories(filteredLavatories);
         }
     }
 
@@ -39,36 +37,17 @@ function FilterByTags() {
         getLavatories();
     }, []);
 
-    /*
-
-    // If we use this one, the list is directly filtered without clicking on a button
-    useEffect(() => {
-        filteredByTagClean();
-    }, [lavatories]);
-
-    */
 
     return (
-
-        <div className="lavatory-body"> 
-            {/*<button onClick={filteredByTagClean}>{tagToFilter}</button>    */}   
-            <br />
-            {filteredLavatories.length === 0                                    // To check if there is any lavatory with that tag
-                ? <p>There are no {tagToFilter} lavatories to discover. </p>    // If there are no lavatories with this tag, this message gets displayed.
-                : filteredLavatories.map((filteredLavatory) => (   
-                    <div key={filteredLavatory.id} className="lavatory-card-filtered">
-                        <Link to={`/lavatories/${filteredLavatory.id}`}>
-                            <img src={filteredLavatory.imageURL} />
-                            <h2>{filteredLavatory.title}</h2>
-                            <p>{filteredLavatory.description}</p>
-                            <p>{filteredLavatory.location.country}</p>
-                        </Link>
-                    </div>
-
-                )
-                )
-            }
-        </div>
+        <>
+            <div className="lavatory-body">
+                {tagToFilter.map((tag, index) => (
+                    <Link key={index} to={`/lavatories/tag/${tag}`}>
+                        <label className="tagsOnDetailPage">{tag}</label>
+                    </Link>
+                ))}
+            </div>
+        </>
     )
 }
 

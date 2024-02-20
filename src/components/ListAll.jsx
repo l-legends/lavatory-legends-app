@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import SearchBar from "./Searchbar";
+import FilterByTags from "../components/FilterByTags";
 
 
 function ListAll() {
@@ -28,6 +29,8 @@ function ListAll() {
     return (
         <>
         <SearchBar />
+        <FilterByTags />
+        
         <div className="lavatory-body">
 
             {lavatories === null

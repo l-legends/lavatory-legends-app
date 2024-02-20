@@ -11,15 +11,47 @@ function SearchBar() {
     const [filteredLavatories, setFilteredLavatories] = useState([]);
     const [search, setSearch] = useState("");
 
+    //update the seach variable onChange
     const handleSearch = (e) => {
         setSearch(e.target.value);
     };
 
+
+        // Filter all lavatories by search // Called 
+        const filteredBySearch = () => {
+            if (lavatories) {
+                const searchLC = search.toLowerCase(); 
+                const searchLavatories = lavatories.filter(lavatory => {
+    
+                    const titleLC = lavatory.title.toLowerCase();
+                    const descriptionLC = lavatory.description.toLowerCase();
+                    const tagsLC = lavatory.tags.map(tag => tag.toLowerCase());
+                    const placeLC = lavatory.location.place.toLowerCase();
+                    const cityLC = lavatory.location.city.toLowerCase();
+                    const countryLC = lavatory.location.country.toLowerCase();
+        
+    
+                    return (
+                        titleLC.includes(searchLC) ||
+                        descriptionLC.includes(searchLC) ||
+                        tagsLC.includes(searchLC) ||
+                        placeLC.includes(searchLC) ||
+                        cityLC.includes(searchLC) ||
+                        countryLC.includes(searchLC)
+                    );
+                });
+                setFilteredLavatories(searchLavatories);
+                console.log(searchLavatories);
+            } 
+        };
+
+
     const handleSearchButton = (e) => {
         if (e.key === 'Enter') {
             filteredBySearch();
-        }
-        filteredBySearch();
+        } else {
+            filteredBySearch();
+        } 
     }
 
     // Get all lavatories first
@@ -33,39 +65,17 @@ function SearchBar() {
             });
     };
 
-    // Filter all lavatories by search.
-    const filteredBySearch = () => {
-        if (lavatories) {
-            const searchLC = search.toLowerCase(); 
-            const searchLavatories = lavatories.filter(lavatory => {
 
-                const titleLC = lavatory.title.toLowerCase();
-                const descriptionLC = lavatory.description.toLowerCase();
-                const tagsLC = lavatory.tags.map(tag => tag.toLowerCase());
-                const placeLC = lavatory.location.place.toLowerCase();
-                const cityLC = lavatory.location.city.toLowerCase();
-                const countryLC = lavatory.location.country.toLowerCase();
-    
-
-                return (
-                    titleLC.includes(searchLC) ||
-                    descriptionLC.includes(searchLC) ||
-                    tagsLC.includes(searchLC) ||
-                    placeLC.includes(searchLC) ||
-                    cityLC.includes(searchLC) ||
-                    countryLC.includes(searchLC)
-                );
-            });
-            setFilteredLavatories(searchLavatories);
-            console.log(searchLavatories);
-        }
-    };
     
 
     // useEffects
     useEffect(() => {
         getLavatories();
     }, []);
+
+    useEffect(() => {
+        filteredBySearch();
+    }, [search]);
 
     return (
         <div>
@@ -75,7 +85,7 @@ function SearchBar() {
             onChange={handleSearch} 
             onKeyPress={handleSearchButton}
             />
-            <button onClick={handleSearchButton}>Search</button>
+            <button onClick={handleSearchButton}> Search </button>
             <br />
             <div className="search-results">
             {filteredLavatories.length === 0
