@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import FilterByTags from "../components/FilterByTags";
 import github from "../img/github-logo.png";
 import BeerChallenge from "../pages/NotFoundPage";
+import simona from "../img/simona-about.png";
+import pauline from "../img/pauline-about.png";
 
 
 function AboutPage ({ beerCount }) {
@@ -12,7 +14,7 @@ function AboutPage ({ beerCount }) {
         <h1>The Legends behind the Legends</h1>
         <div className="about-board">
         <div className="about-card">
-            <img />
+            <img src={pauline}/>
             <div className="about-name">
             <h2>Pauline Cvt </h2> 
             <br/>
@@ -27,7 +29,7 @@ function AboutPage ({ beerCount }) {
             
         </div>
         <div className="about-card">
-            <img />
+            <img src={simona}/>
             <div className="about-name">
             <h2>Simona Wurst</h2>
             <br/>
