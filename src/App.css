@@ -126,8 +126,8 @@ h6 {
   box-shadow: 0 0 5px 0 #454545;
   margin: 1em;
   flex-wrap: wrap;
-  height: 70vh;
-  width: 40vw;
+  height: 50vh;
+  width: 30vw;
 }
 
 .lavatory-card:hover {
@@ -136,7 +136,7 @@ h6 {
 }
 
 .lavatory-card img {
-  height: 50vh;
+  height: 40vh;
   width: auto;
   border-radius: 10px;
 }
@@ -242,24 +242,42 @@ h6 {
   flex-wrap: wrap;
 }
 
-.about-card {
-  padding: 2em;
-  border: 1px solid #000;
-  border-radius: 10px;
-  box-shadow: 0 0 5px 0 #454545;
-  margin: 1em;
-  flex-wrap: wrap; 
-}
 
 .search-results {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin: 0;
+  margin-right: 2vw;
+  margin-left: 2vw;
   padding: 0;
   flex-wrap: wrap;
+
 }
+
+.lavatory-search-result {
+  padding: 2em;
+  border: 1px solid #000;
+  border-radius: 10px;
+  box-shadow: 0 0 5px 0 #454545;
+  margin: 1em;
+  flex-wrap: wrap;
+  height: 35vh;
+  width: 20vw;
+
+}
+
+.lavatory-search-result:hover {
+  box-shadow: 0 0 15px 0 #454545;
+  transition: box-shadow 300ms;
+}
+
+.lavatory-search-result img {
+  height: 15vh;
+  width: auto;
+  border-radius: 10px;
+}
+
 
 .tagsOnDetailPage {
   background-color: #264653;

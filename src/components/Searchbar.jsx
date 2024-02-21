@@ -49,9 +49,21 @@ function SearchBar() {
     const handleSearchButton = (e) => {
         if (e.key === 'Enter') {
             filteredBySearch();
-        } else {
+        } else if (search === "") { 
+            emptySearch();
+        }
+        else {
             filteredBySearch();
         } 
+    }
+
+    function emptySearch() {
+        setSearch("");
+        return (
+            <div>
+                <h1> Empty </h1>
+            </div>
+        )
     }
 
     // Get all lavatories first
@@ -88,21 +100,26 @@ function SearchBar() {
             <button onClick={handleSearchButton}> Search </button>
             <br />
             <div className="search-results">
-            {filteredLavatories.length === 0
-                ? <p>There are no lavatories corresponding to your research. </p>
-                : filteredLavatories.map((filteredLavatory) => (
-                    <div key={filteredLavatory.id} className="lavatory-card">
-                            <Link to={`/lavatories/${filteredLavatory.id}`}>
-                                <img src={filteredLavatory.imageURL} />
-                                <h2>{filteredLavatory.title}</h2>
-                                <p>{filteredLavatory.description}</p>
-                                <p>{filteredLavatory.location.country}</p>
-                            </Link>
-                    </div>
-                ))}
+                {search === "" // empty search
+                    ?  null
+                    :   
+                        filteredLavatories.map((filteredLavatory) => (
+                        
+                        <div key={filteredLavatory.id} className="lavatory-search-result">
+                            <p>Legendary "{search}"</p>
+                                <Link to={`/lavatories/${filteredLavatory.id}`}>
+                                    <img src={filteredLavatory.imageURL} />
+                                    <h2>{filteredLavatory.title}</h2>
+                                    <p>{filteredLavatory.location.country}</p>
+                                </Link>
+                        </div> 
+                        
+                    ))
+                    
+                }
                 </div>
-                <br/>
-                <h1> All the Legends </h1>
+                
+                
         </div>
 
     )
