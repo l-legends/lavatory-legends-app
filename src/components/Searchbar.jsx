@@ -101,20 +101,25 @@ function SearchBar() {
             <br />
             <div className="search-results">
                 {search === "" // empty search
-                    ? <p> Search for a legend </p>
-                    :   filteredLavatories.map((filteredLavatory) => (
-                        <div key={filteredLavatory.id} className="lavatory-card">
+                    ?  null
+                    :   
+                        filteredLavatories.map((filteredLavatory) => (
+                        
+                        <div key={filteredLavatory.id} className="lavatory-search-result">
                             <p>Legendary "{search}"</p>
                                 <Link to={`/lavatories/${filteredLavatory.id}`}>
                                     <img src={filteredLavatory.imageURL} />
                                     <h2>{filteredLavatory.title}</h2>
                                     <p>{filteredLavatory.location.country}</p>
                                 </Link>
-                        </div> ))
-    }
+                        </div> 
+                        
+                    ))
+                    
+                }
                 </div>
-                <br/>
-                <h1> All the Legends </h1>
+                
+                
         </div>
 
     )
