@@ -14,7 +14,10 @@ function AddToiletForm() {
     const [locationCity, setLocationCity] = useState("");
     const [locationCountry, setLocationCountry] = useState("");
     const [tags, setTags] = useState("");
-    const [imageURL, setImageURL] = useState("");
+    //  const [imageURL, setImageURL] = useState("");
+    const [imageUrl, setImageUrl] = useState(null);   // IMG Upload
+    const [waitingForImageUrl, setWaitingForImageUrl] = useState(false);   // IMG Upload
+
     const navigate = useNavigate();
 
 
@@ -25,12 +28,33 @@ function AddToiletForm() {
     const handleLocationCity = (e) => setLocationCity(e.target.value)
     const handleLocationCountry = (e) => setLocationCountry(e.target.value)
     const handleTags = (e) => setTags(e.target.value)
-    const handleImageURL = (e) => setImageURL(e.target.value)
+    //  const handleImageURL = (e) => setImageURL(e.target.value)
 
 
     // Base URL & Navigate
-    const database = "https://lavatory-legends.adaptable.app/lavatories"
+    const database = "https://lavatory-legends.adaptable.app/lavatories";
 
+    // IMG Upload
+    const handleFileUpload = (e) => {
+        setWaitingForImageUrl(true);
+        console.log("The file to be uploaded is: ", e.target.files[0]);
+        const url = `https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_NAME}/upload`;
+        const dataToUpload = new FormData();
+        dataToUpload.append("file", e.target.files[0]);
+        dataToUpload.append("upload_preset", import.meta.env.VITE_UNSIGNED_UPLOAD_PRESET);
+        axios
+            .post(url, dataToUpload)
+            .then((response) => {
+                console.log('RESPONSE ', response.data);
+                setImageUrl(response.data.secure_url);
+                setWaitingForImageUrl(false);
+                console.log(waitingForImageUrl);
+            })
+            .catch((e) => {
+                console.error(e);
+            });
+
+    };
 
 
     // Setting up handle Submit + Variable newLavatory
@@ -47,9 +71,11 @@ function AddToiletForm() {
                 country: locationCountry  //from const useState
             },
             tags: tags.split(","),    // We've got an input string. Tags should be separated by comma. This converts the string to our array. Maybe we'll find a better solution with preselected?
-            imageURL: imageURL
+            imageURL: imageUrl
         }
 
+
+        // Axios.post for the whole Details
         axios.post(`${database}`, newLavatory)
             .then((response) => {
                 console.log(response)
@@ -141,6 +167,16 @@ function AddToiletForm() {
                         <label>Image
                             <br />
                             <input
+                                type="file"
+                                name="imageURL"
+                                onChange={(e) => handleFileUpload(e)}
+                            />
+                        </label>
+                    </div>
+                    {/*} <div className="addToiletFormElements">
+                        <label>Image
+                            <br />
+                            <input
                                 type="text"
                                 name="imageURL"
                                 placeholder="Place the URL here, e.g.https://my-foto.com"
@@ -148,9 +184,9 @@ function AddToiletForm() {
                                 onChange={handleImageURL}
                             />
                         </label>
-                    </div>
+    </div> */}
                     <br />
-                    <button type="submit">Add new lavatory</button>
+                    <button type="submit" disabled={waitingForImageUrl} >Add new lavatory</button>
                 </form>
             </div>
         </>
