@@ -65,7 +65,7 @@ function SearchBar() {
     // useEffects
     useEffect(() => {
         getLavatories();
-    }, []);
+    }, [search]);
 
     return (
         <div>
@@ -79,7 +79,7 @@ function SearchBar() {
             <br />
             <div className="search-results">
             {filteredLavatories.length === 0
-                ? <p>There are no lavatories to discover. </p>
+                ? <p>There are no lavatories corresponding to your research. </p>
                 : filteredLavatories.map((filteredLavatory) => (
                     <div key={filteredLavatory.id} className="lavatory-card">
                             <Link to={`/lavatories/${filteredLavatory.id}`}>
