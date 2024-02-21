@@ -17,17 +17,22 @@ import SearchBar from './components/Searchbar';
 
 function App() {
 
+  const [beerCount, setBeerCount] = useState({ 
+    pauline: 0, 
+    simona: 0 
+  });
+
   return (
     <>
       <NavBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
+        <Route path="/about" element={<AboutPage beerCount={beerCount}/>} />
         <Route path="/lavatories/:id" element={<DetailsPage />} />
         <Route path="/lavatories/tag/:tag" element={<FilterByTagPage />} />
         <Route path="/lavatories/edit/:id" element={<EditToilet />} />
         <Route path="/lavatories/create/:id" element={<AddToilet />} />
-        <Route path="/*" element={<NotFoundPage />} />
+        <Route path="/*" element={<NotFoundPage beerCount={beerCount} setBeerCount={setBeerCount}/>} />
       </Routes>
       <Footer />
     </>

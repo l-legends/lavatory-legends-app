@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
-import ListAll from "../components/ListAll";
 import DetailsPage from '../pages/DetailsPage';
-
-
 
 
 function FilterByTagPage() {
@@ -15,7 +12,7 @@ function FilterByTagPage() {
     const [lavatoriesWithTag, setLavatoriesWithTag] = useState(null);
     const database = "https://lavatory-legends.adaptable.app/lavatories";
 
-    useEffect(() => {
+    const getLavatories = () => {
         axios.get(database)
             .then((response) => {
                 setLavatoriesWithTag(response.data.filter(lavatory => lavatory.tags.includes(tagToFilter)));
@@ -23,12 +20,18 @@ function FilterByTagPage() {
             .catch((error) => {
                 console.log(error);
             });
+    };
+
+    useEffect(() => {
+        getLavatories();
     }, [tagToFilter]);
     
 
     return (
         <>
             <h1>Discover all {tag} lavatories</h1>
+            <Link to={'/'}>Back to All Lavatories</Link>
+            <div className="search-results">
             {lavatoriesWithTag === null
                 ? <p>Lavatories loading</p>
                 : lavatoriesWithTag.map((lavatory) => {
@@ -41,10 +44,11 @@ function FilterByTagPage() {
                                 <p>{lavatory.location.country}</p>
                             </Link>
                         </div>
-
+                    
                     )
                 })
             }
+            </div>
         </>
     );
 }

@@ -2,9 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import FilterByTags from "../components/FilterByTags";
 import github from "../img/github-logo.png";
+import BeerChallenge from "../pages/NotFoundPage";
 
 
-function AboutPage () {
+function AboutPage ({ beerCount }) {
 
     return (
         <>
@@ -21,6 +22,7 @@ function AboutPage () {
             </div>
             <h5>The one who breaks the code</h5>
             <p>Social Sciences Uni Student, UX/UI Designer, Web Developer, Meme Queen</p>
+            <p>Pauline owes Simona {beerCount.pauline} beer(s).</p>
             <br/>
             
         </div>
@@ -28,12 +30,14 @@ function AboutPage () {
             <img />
             <div className="about-name">
             <h2>Simona Wurst</h2>
+            <br/>
             <a href="https://github.com/sicawu">
                 <img className="github-logo" src={github} />
             </a>
             </div>
-            <h5>The one who fix the code</h5>
-            <p>SEO, Marketing Specialist, Web Developer, Yoga Teacher, Kombucha Addict</p>
+            <h5>The one who fixes the code</h5>
+            <p>Marketing & SEO Specialist, Web Developer, Yoga Teacher, Kombucha Addict</p>
+            <p>Simona owes Pauline {beerCount.simona} beer(s).</p>
             <br/>
             
         </div>
