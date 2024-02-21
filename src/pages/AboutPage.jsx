@@ -12,10 +12,10 @@ function AboutPage ({ beerCount }) {
     return (
         <>
         <h1>The Legends behind the Legends</h1>
-        <div className="about-board">
-        <div className="about-card">
+        <div class='grid grid-flow-col'>
+        <div class="box-border h-32 w-32 p-4 border-4">
             <img src={pauline}/>
-            <div className="about-name">
+            <div className='about-name'>
             <h2>Pauline Cvt </h2> 
             <br/>
             <a href="https://github.com/Paulinecvt">
@@ -28,7 +28,7 @@ function AboutPage ({ beerCount }) {
             <br/>
             
         </div>
-        <div className="about-card">
+        <div class='box-border h-32 w-32 p-4 border-4'>
             <img src={simona}/>
             <div className="about-name">
             <h2>Simona Wurst</h2>
