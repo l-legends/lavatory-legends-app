@@ -13,7 +13,6 @@ function HomePage() {
             <br/>Rate your favorites
             <br/>Add your own legend</p>
             <ListAll />
-            <FilterByTags />
         </>
     );
 }
