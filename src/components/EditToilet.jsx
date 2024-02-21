@@ -15,9 +15,11 @@ function EditToilet() {
             city: "",
             country: ""
         },
-        tags: "",
+        tags: [],
         imageURL: ""
     });
+
+    const [tagsString, setTagsString] = useState("");  // We need this one when we convert our tags back into a string
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -37,6 +39,14 @@ function EditToilet() {
                 return { ...prevLavatory, [name]: value };
             }
         });
+
+        if (name === "tags") {
+            setTagsString(value);
+            setEditLavatory((prevLavatory) => ({
+                ...prevLavatory,
+                tags: value.split(",").map(tag => tag.trim()).join(', ')
+              }));
+            }
     };
     
 
@@ -50,8 +60,6 @@ function EditToilet() {
         catch (e) {
             console.log(e)
         }
-
-
     }
     
 
@@ -66,6 +74,7 @@ function EditToilet() {
             try {
                 const response = await axios.get(`${database}/${id}`);
                 setEditLavatory(response.data);
+                setTagsString(response.data.tags.join(", "));
             } catch (error) {
                 console.error("Error fetching lavatory data:", error);
             }

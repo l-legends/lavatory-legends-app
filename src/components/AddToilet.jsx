@@ -14,7 +14,7 @@ function AddToiletForm() {
     const [locationCity, setLocationCity] = useState("");
     const [locationCountry, setLocationCountry] = useState("");
     const [tags, setTags] = useState("");
-    //  const [imageURL, setImageURL] = useState("");
+    //  const [imageURL, setImageURL] = useState("");  // If we work with the imgURL
     const [imageUrl, setImageUrl] = useState(null);   // IMG Upload
     const [waitingForImageUrl, setWaitingForImageUrl] = useState(false);   // IMG Upload
 
@@ -28,7 +28,7 @@ function AddToiletForm() {
     const handleLocationCity = (e) => setLocationCity(e.target.value)
     const handleLocationCountry = (e) => setLocationCountry(e.target.value)
     const handleTags = (e) => setTags(e.target.value)
-    //  const handleImageURL = (e) => setImageURL(e.target.value)
+    //  const handleImageURL = (e) => setImageURL(e.target.value) // If we work with the imgURL
 
 
     // Base URL & Navigate
@@ -70,7 +70,7 @@ function AddToiletForm() {
                 city: locationCity,       //from const useState
                 country: locationCountry  //from const useState
             },
-            tags: tags.split(","),    // We've got an input string. Tags should be separated by comma. This converts the string to our array. Maybe we'll find a better solution with preselected?
+            tags: tags.split(",").map(e => e.trim()),    // We've got an input string. Tags should be separated by comma. This converts the string to our array. Trim removes the empty spaces (as we got the bug that clicking on the tag creates a new laningpage %20clean instead of clean). Maybe we'll find a better solution with preselected?
             imageURL: imageUrl
         }
 
@@ -164,7 +164,7 @@ function AddToiletForm() {
                         </label>
                     </div>
                     <div className="addToiletFormElements">
-                        <label>Image
+                        <label className="imgUpload">Image
                             <br />
                             <input
                                 type="file"
@@ -173,7 +173,7 @@ function AddToiletForm() {
                             />
                         </label>
                     </div>
-                    {/*} <div className="addToiletFormElements">
+                    {/*} <div className="addToiletFormElements"> // If we work with the imgURL
                         <label>Image
                             <br />
                             <input
