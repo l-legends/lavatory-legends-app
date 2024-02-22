@@ -4,6 +4,8 @@ import axios from "axios";
 import editbtn from "../img/edit-btn.png";
 import EditToilet from "../components/EditToilet";
 import FilterByTags from "../components/FilterByTags";
+import BackIcon from "../img/back-btn.png";
+import DeleteIcon from "../img/trash-btn.png";
 
 
 function DetailsPage() {
@@ -50,7 +52,11 @@ function DetailsPage() {
                     ? <p>Lavatories loading...</p>
                     : (
                         <>
-                            <Link to={'/'}>Back to All Lavatories</Link>
+                            <button className="back-btn">
+                            <Link to={'/'}>
+                                <img src={BackIcon} />
+                            </Link>
+                            </button>
 
                             <img src={lavatory.imageURL} />
                             <br />
@@ -69,7 +75,9 @@ function DetailsPage() {
                                     <img className="edit-btn" src={editbtn} />
                                 </button>
                             </ Link>
-                            <button className="Delete" onClick={handleDelete}>Delete</button>
+                            <button className="Delete" onClick={handleDelete}>
+                                <img src={DeleteIcon} />
+                            </button>
                         </>
                     )
                 }
