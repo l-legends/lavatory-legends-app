@@ -7,7 +7,7 @@ function EditToilet() {
 
     return (
         <>
-            <h1>Edit this lavatory</h1>
+            <h1 className="text-5xl text-blue font-league m-4 p-4">Edit this Lavatory.</h1>
             <EditToiletForm />
         </>
     );

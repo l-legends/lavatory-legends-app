@@ -7,7 +7,7 @@ function AddToilet() {
 
     return (
         <>
-            <h1>Add a new legendary lavatory</h1>
+            <h1 className="text-5xl text-blue font-league m-4 p-4">Add a new Lavatory. Become a Legend.</h1>
             <AddToiletForm />
         </>
     );
