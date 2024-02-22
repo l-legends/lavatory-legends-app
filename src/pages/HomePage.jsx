@@ -7,7 +7,7 @@ function HomePage() {
 
     return (
         <>
-            <h1> Welcome to the Lavatory Parade </h1>
+            <h1 className="font-league color-blue text-5xl"> Welcome to the Lavatory Parade </h1>
             <p>Discover the legendary lavatories
             <br/>Search for the most special ones
             <br/>Add your own legend</p>

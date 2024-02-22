@@ -70,7 +70,7 @@ function DetailsPage() {
                             {lavatory.tags.map((tag, index) => (
                                 
                                 <Link key={index} to={`/lavatories/tag/${tag}`}>
-                                    <label className="bg-blue font-sanchez mx-3 ">{tag}</label>
+                                    <label className="bg-blue text-white font-sanchez p-2 rounded text-lg hover:bg-orange hover:text-blue"> {tag} </label>
                                 </Link>
                                 
                             ))}
@@ -78,7 +78,7 @@ function DetailsPage() {
                             <br/>
                             <br/>
                             <div className="justify-items-center">
-                            <h1 className="font-league text-4xl color-blue ">{lavatory.title}</h1>
+                            <h1 className="font-league text-4xl text-blue ">{lavatory.title}</h1>
                             <br/>
                             <p className="text-xl">{lavatory.description}</p>
                             <br/>
