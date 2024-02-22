@@ -15,7 +15,7 @@ function NavBar() {
                 <div className="topNavigation">
                     <Link className="NavLink" to="/">Home</Link>
                     <Link className="NavLink" to="/about">About</Link>
-                    <Link className="NavLink" to="/lavatories/create/:id">Create</Link>
+                    <Link className="NavLinkEnd" to="/lavatories/create/:id">Create</Link>
                 </div>
             </div>
         </>

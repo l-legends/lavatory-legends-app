@@ -91,8 +91,9 @@ function AddToiletForm() {
         <>
             <div className="addToiletForm">
                 <form onSubmit={handleSubmit}>
+                <div class="space-y-5">
                     <div className="addToiletFormElements">
-                        <label>Name
+                        <label for="username" className="block text-lg font-md leading-6">Name
                             <br />
                             <input
                                 type="text"
@@ -187,6 +188,7 @@ function AddToiletForm() {
     </div> */}
                     <br />
                     <button type="submit" disabled={waitingForImageUrl} >Add new lavatory</button>
+                    </div>
                 </form>
             </div>
         </>
