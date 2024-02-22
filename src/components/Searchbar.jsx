@@ -92,13 +92,13 @@ function SearchBar() {
     return (
         <div>
             <div className="flex justify-center">
-                <div className="flex justify-center items-center p-2 w-1/2 bg-white text-md text-gray-900 border border-gray-300 rounded-lg dark:bg-gray-700">
+                <div className="flex justify-center items-center p-2 w-1/2 bg-white text-md text-gray-900 border border-gray-300 rounded-lg">
                     <input
                         type="text"
                         placeholder="Search for a legend..."
                         onChange={handleSearch}
                         onKeyPress={handleSearchButton}
-                        class="block p-1 text-sm text-gray-900 dark:bg-gray-700"
+                        className="block p-1 text-sm text-gray-900"
                     />
                     <button onClick={handleSearchButton}>
                         <img className="size-5 ml-2 bg-white" src={SearchIcon} alt="Search Icon" />
@@ -107,18 +107,18 @@ function SearchBar() {
                 </div>
             </div>
 
-            <div className="search-results">
+            <div className="search-results flex justify-center">
                 {search === "" // empty search
                     ? null
                     :
                     filteredLavatories.map((filteredLavatory) => (
 
-                        <div key={filteredLavatory.id} className="lavatory-search-result">
-                            <p>Legendary "{search}"</p>
+                        <div key={filteredLavatory.id} className="lavatory-search-result bg-white p-2 rounded-lg">
+                            <p className="text-xs font-sanchez py-1">"{search}"</p>
                             <Link to={`/lavatories/${filteredLavatory.id}`}>
-                                <img src={filteredLavatory.imageURL} />
-                                <h2>{filteredLavatory.title}</h2>
-                                <p>{filteredLavatory.location.country}</p>
+                                <img className="object-cover h-24 rounded-lg" src={filteredLavatory.imageURL} alt="{filteredLavatory.title}"/>
+                                <h3 className="text-xs text-grey font-league py-1">{filteredLavatory.title}</h3>
+                                <p className="text-xs font-sanchez py-1">{filteredLavatory.location.country}</p>
                             </Link>
                         </div>
 

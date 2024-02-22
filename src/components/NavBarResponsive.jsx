@@ -13,7 +13,7 @@ function BurgerMenu() {
 
     return (
         <>
-            <div className="mobileNavigation">
+            <div className="h-20">
                 <nav>
                     <div className="logoBurgerMenu">
                         <Link to="/">

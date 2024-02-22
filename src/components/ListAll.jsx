@@ -29,19 +29,19 @@ function ListAll() {
     return (
         <>
 
-            <div className="lavatory-body grid-cols-1 md:grid-cols-3">
+            <div className="lavatory-body flex items-start grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
 
                 {lavatories === null
                     ? <p>Lavatories loading</p>
                     : lavatories.map((lavatory) => {
                         return (
-                            <div>
-                                <div key={lavatory.id} className="grid py-2 m-4 bg-onyx bg-opacity-5 hover:border-black hover:border rounded-lg">
-                                    <Link to={`/lavatories/${lavatory.id}`}>
-                                        <img src={lavatory.imageURL} />
-                                        <h2 className="text-2xl text-grey font-league py-2">{lavatory.title}</h2>
-                                        <p className="hidden sm:block">{lavatory.description}</p>
-                                        <p className="text-sm font-sanchez py-1 italic">{lavatory.location.country}</p>
+                            <div key={lavatory.id} >
+                                <div className="grid py-2 px-1 my-5 bg-onyx bg-opacity-5 hover:border-black hover:border rounded-lg">
+                                    <Link to={`/lavatories/${lavatory.id}`}className="flex flex-col h-full">
+                                        <img className="object-cover h-96 rounded-lg" src={lavatory.imageURL} alt="{lavatory.title}"/>  
+                                        <h3 className="text-2xl md:h-20 text-grey font-league py-2">{lavatory.title}</h3>
+                                        <p className="hidden sm:block text-xs md:h-12 font-sanchez py-1">{lavatory.description}</p>
+                                        <p className="text-sm font-sanchez py-1">{lavatory.location.country}</p>
                                     </Link>
                                 </div>
                             </div>

@@ -230,7 +230,7 @@ h6 {
 
 
 
-
+/*
 .search-results {
   display: flex;
   flex-direction: row;
@@ -265,7 +265,7 @@ h6 {
   width: auto;
   border-radius: 10px;
 }
-
+*/
 
 .tagsOnDetailPage {
   background-color: #264653;
