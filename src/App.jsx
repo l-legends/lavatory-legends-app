@@ -12,6 +12,7 @@ import FilterByTagPage from './pages/FilteredTagsPage';
 import Footer from "./components/Footer";
 import ListAll from './components/ListAll';
 import SearchBar from './components/Searchbar';
+import BurgerMenu from './components/HamburgerMenu'
 
 
 
@@ -25,6 +26,7 @@ function App() {
   return (
     <>
       <NavBar />
+      <BurgerMenu />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage beerCount={beerCount}/>} />
