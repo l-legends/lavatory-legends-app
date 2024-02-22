@@ -13,7 +13,7 @@ function BurgerMenu() {
 
     return (
         <>
-            <div className="flex justify-start ml-0 top-0 h-36 border-b-onyx border-opacity-10 border-b-2 content-center">
+            <div className="flex justify-start ml-0 top-0 h-36 border-b-onyx border-opacity-10 border-b-2">
                 <nav>
 
                     <div className="">

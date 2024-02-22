@@ -107,25 +107,27 @@ function SearchBar() {
                 </div>
             </div>
 
-            <div className="search-results flex justify-center">
-                {search === "" // empty search
-                    ? null
-                    :
-                    filteredLavatories.map((filteredLavatory) => (
 
-                        <div key={filteredLavatory.id} className="lavatory-search-result bg-white p-2 rounded-lg">
-                            <p className="text-xs font-sanchez py-1">"{search}"</p>
-                            <Link to={`/lavatories/${filteredLavatory.id}`}>
-                                <img className="object-cover h-24 rounded-lg" src={filteredLavatory.imageURL} alt="{filteredLavatory.title}"/>
-                                <h3 className="text-xs text-grey font-league py-1">{filteredLavatory.title}</h3>
-                                <p className="text-xs font-sanchez py-1">{filteredLavatory.location.country}</p>
-                            </Link>
-                        </div>
-
-                    ))
-
-                }
-            </div>
+            <div className="grid grid-cols-5 gap-4 justify-items-center">
+  {search === "" // empty search
+    ? null
+    : filteredLavatories.map((filteredLavatory) => (
+        <div key={filteredLavatory.id} className="bg-white p-2 rounded-lg h-56 w-48 flex-wrap justify-items-center justify-center">
+          <p className="text-xs font-sanchez py-1">"{search}"</p>
+          <Link to={`/lavatories/${filteredLavatory.id}`}>
+            <img
+              className="flex-start object-cover h-2/4 w-auto rounded-lg"
+              src={filteredLavatory.imageURL}
+              alt={filteredLavatory.title}
+            />
+            <h3 className="text-xs text-blue font-league py-1">{filteredLavatory.title}</h3>
+            <p className="text-xs text-onyx font-sanchez py-1">
+              {filteredLavatory.location.country}
+            </p>
+          </Link>
+        </div>
+      ))}
+</div>
 
 
         </div>

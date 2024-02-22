@@ -32,7 +32,7 @@ function FilterByTagPage() {
         <>
             <h1 className="text-5xl text-blue font-league m-4 p-4">{tag.charAt(0).toUpperCase() + tag.slice(1)} is what you need.</h1>
             <p className="text-xs h-12 font-sanchez py-1">No worries, we've got you sorted. Discover all {tag} lavatories.</p>
-            <div className="lavatory-body flex items-start grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+            <div className="lavatory-body items-start grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
                 {lavatoriesWithTag === null
                     ? <p>Lavatories loading</p>
                     : lavatoriesWithTag.map((lavatory) => {
