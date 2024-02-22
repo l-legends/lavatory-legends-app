@@ -11,9 +11,10 @@ function AboutPage ({ beerCount }) {
 
     return (
         <>
-        <h1>The Legends behind the Legends</h1>
-        <div className='grid grid-flow-col gap-9 mx-5'>
-        <div className="box-border h-70 w-3/5 p-4 border-black border-2 rounded-md">
+        <h1 className="text-5xl text-blue font-league m-4 p-4">The Legends behind the Legends</h1>
+        <br/>
+        <div className='flex-grid grid-flow-col justify-between mx-5 h-70 w-2/5'>
+        <div className="flex box-border h-70 w-2/5 p-4 border-black border-2 rounded-md">
             <img className='size-80' src={pauline}/>
             <div className='font-'>
             <h2>Pauline Cvt </h2> 
@@ -28,7 +29,7 @@ function AboutPage ({ beerCount }) {
             <br/>
             
         </div>
-        <div className='box-border h-70 w-3/5 p-4 border-black border-2 rounded-md'>
+        <div className='flex box-border p-4 border-black border-2 rounded-md'>
             <img className='size-80' src={simona}/>
             <div className="about-name">
             <h2>Simona Wurst</h2>
