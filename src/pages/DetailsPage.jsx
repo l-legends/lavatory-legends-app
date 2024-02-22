@@ -49,32 +49,50 @@ function DetailsPage() {
 
     return (
         <>
-            <div className="ProjectDetailPage">
+            <div className="flex justify-items-center flex-col">
                 {lavatory === null
                     ? <p>Lavatories loading...</p>
                     : (
                         <>
-                            <button className="flex justify-items-start">
-                            <Link to={'/'}>
-                                <img className="flex size-10" src={BackIcon} />
-                            </Link>
-                            </button>
-
-                            <img src={lavatory.imageURL} />
-                            <br />
-                            {lavatory.tags.map((tag, index) => (
-                                <Link key={index} to={`/lavatories/tag/${tag}`}>
-                                    <label className="tagsOnDetailPage">{tag}</label>
+                        <br/>
+                                <Link to={'/'}>
+                                <button  className="flex justify-items-start">
+                                <img className="flex size-10  ml-1/5" src={BackIcon} />
+                                </button>
                                 </Link>
+                                
+                            
+                            <div className="flex justify-center">
+                            <img className="size-2/5" src={lavatory.imageURL} />
+                            </div>
+                            <br />
+                            <div className="flex justify-center gap-5">
+                            {lavatory.tags.map((tag, index) => (
+                                
+                                <Link key={index} to={`/lavatories/tag/${tag}`}>
+                                    <label className="bg-blue text-white font-sanchez p-2 rounded text-lg hover:bg-orange hover:text-blue"> {tag} </label>
+                                </Link>
+                                
                             ))}
-                            <h1>{lavatory.title}</h1>
-                            <p>{lavatory.description}</p>
-                            <div className="flex gap-3">
+                            </div>
+                            <br/>
+                            <br/>
+                            <div className="justify-items-center">
+                            <h1 className="font-league text-4xl text-blue ">{lavatory.title}</h1>
+                            <br/>
+                            <p className="text-xl">{lavatory.description}</p>
+                            <br/>
+                            
+                            <div className="flex justify-center gap-3">
                             <img src={PlaceIcon} className="h-6 w-6" /> <p> {lavatory.location.place}</p>
                             </div>
-                            <div className="flex gap-3">
+                            
+                            <div className="flex justify-center gap-3">
                             <img src={LocationIcon} className="h-6 w-5" /> <p> {lavatory.location.city}, {lavatory.location.country}</p>
                             </div>
+                            </div>
+                            <br/>
+                            <div className="justify-items-center">
                             <Link to={`/lavatories/edit/${lavatory.id}`}>
                                 <button>
                                     <img className="edit-btn" src={editbtn} />
@@ -83,6 +101,9 @@ function DetailsPage() {
                             <button className="size-10" onClick={handleDelete}>
                                 <img src={DeleteIcon} />
                             </button>
+                            </div>
+                            <br/>
+                            <br/>
                         </>
                     )
                 }

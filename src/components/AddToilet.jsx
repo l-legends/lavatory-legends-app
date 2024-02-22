@@ -91,9 +91,9 @@ function AddToiletForm() {
         <>
             <div className="addToiletForm">
                 <form onSubmit={handleSubmit}>
-                <div class="space-y-5">
+                <div className="space-y-5">
                     <div className="addToiletFormElements">
-                        <label for="username" className="block text-lg font-md leading-6">Name
+                        <label className="block text-lg font-md leading-6">Name
                             <br />
                             <input
                                 type="text"
