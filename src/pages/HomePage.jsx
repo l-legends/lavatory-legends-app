@@ -19,7 +19,7 @@ function HomePage() {
                 <SearchBar />
             </section>
             <section>
-                <h2 className="text-3xl text-grey font-league py-9">Find Pees. Set priorities.</h2>
+                <h2 className="text-3xl text-grey font-league py-9">Find pees. Set priorities.</h2>
                 <FilterByTags />
                 <ListAll />
             </section>

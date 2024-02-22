@@ -89,11 +89,11 @@ function AddToiletForm() {
 
     return (
         <>
-            <div className="addToiletForm">
+            <div className="addToiletForm rounded-lg pb-20">
                 <form onSubmit={handleSubmit}>
-                <div className="space-y-5">
+                <div className="space-y-5 ">
                     <div className="addToiletFormElements">
-                        <label className="block text-lg font-md leading-6">Name
+                        <label className="block text-lg font-md text-white p-3">Name
                             <br />
                             <input
                                 type="text"
@@ -105,7 +105,7 @@ function AddToiletForm() {
                         </label>
                     </div>
                     <div className="addToiletFormElements">
-                        <label>Description
+                        <label className="block text-lg font-md text-white p-3">Description
                             <br />
                             <input
                                 type="textarea"
@@ -117,7 +117,7 @@ function AddToiletForm() {
                         </label>
                     </div>
                     <div className="addToiletFormElements">
-                        <label>Place
+                        <label className="block text-lg font-md text-white p-3">Place
                             <br />
                             <input
                                 type="text"
@@ -129,7 +129,7 @@ function AddToiletForm() {
                         </label>
                     </div>
                     <div className="addToiletFormElements">
-                        <label>City
+                        <label className="block text-lg font-md text-white p-3">City
                             <br />
                             <input
                                 type="text"
@@ -141,7 +141,7 @@ function AddToiletForm() {
                         </label>
                     </div>
                     <div className="addToiletFormElements">
-                        <label>Country
+                        <label className="block text-lg font-md text-white p-3">Country
                             <br />
                             <input
                                 type="text"
@@ -153,7 +153,7 @@ function AddToiletForm() {
                         </label>
                     </div>
                     <div className="addToiletFormElements">
-                        <label>Tags
+                        <label className="block text-lg font-md text-white p-3">Tags
                             <br />
                             <input
                                 type="text"
@@ -165,7 +165,7 @@ function AddToiletForm() {
                         </label>
                     </div>
                     <div className="addToiletFormElements">
-                        <label className="imgUpload">Image
+                        <label className="block text-lg font-md text-white p-3">Image
                             <br />
                             <input
                                 type="file"
@@ -187,7 +187,11 @@ function AddToiletForm() {
                         </label>
     </div> */}
                     <br />
+<<<<<<< HEAD
                     <button type="submit" disabled={waitingForImageUrl} className="bg-blue text-white hover:bg-orange hover:text-blue text-lg " >Add new lavatory</button>
+=======
+                    <button className="text-white border border-orange py-2 px-7 bg-orange" type="submit" disabled={waitingForImageUrl} >Add new lavatory</button>
+>>>>>>> 303160d46b2042a770bc50cd8365bd52cef838f8
                     </div>
                 </form>
             </div>
