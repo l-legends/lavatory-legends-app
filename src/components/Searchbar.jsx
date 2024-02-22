@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-
+import SearchIcon from "../img/search-icon.png";
 
 function SearchBar() {
 
@@ -97,7 +97,9 @@ function SearchBar() {
             onChange={handleSearch} 
             onKeyPress={handleSearchButton}
             />
-            <button onClick={handleSearchButton}> Search </button>
+            <button onClick={handleSearchButton}>  
+            <img className="size-6" src={SearchIcon}/>
+            </button>
             <br />
             <div className="search-results">
                 {search === "" // empty search

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Pauline from '../img/pauline-about.png';
 import Simona from '../img/simona-about.png';
+import BackIcon from '../img/back-btn.png';
 
 function NotFound( { beerCount, setBeerCount} ) {
 
@@ -37,9 +38,13 @@ function NotFound( { beerCount, setBeerCount} ) {
                         <p>Simona owes Pauline {clickCountSimona} toilet roll(s).</p>
                     </div>
                 </div>
-                <Link to="/about"> >> Check out the score</Link>   
+                <Link to="/about"> Check out the score</Link>   
                 <br />
-                <Link to="/"> >> Let's go back to discover all lavatories</Link>
+                <button className="back-btn">
+                            <Link to={'/'}>
+                                <img src={BackIcon} />
+                            </Link>
+                            </button>
         </div>
     );
 }
