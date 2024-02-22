@@ -28,7 +28,7 @@ function BurgerMenu() {
                 </nav>
                 {burgerMenuClicked && (
                     <div className="menu visible">
-                        <button className="closeBurgerButton" onClick={updateMenu}>x</button>
+                        <button className="closeBurgerButton" onClick={updateMenu}>X</button>
                         <Link className="burgerLink" to="/" onClick={updateMenu}>Home</Link>
                         <Link className="burgerLink" to="/about" onClick={updateMenu}>About</Link>
                         <Link className="burgerLink" to="/lavatories/create/:id" onClick={updateMenu}>Create</Link>
