@@ -187,7 +187,7 @@ function AddToiletForm() {
                         </label>
     </div> */}
                     <br />
-                    <button type="submit" disabled={waitingForImageUrl} >Add new lavatory</button>
+                    <button type="submit" disabled={waitingForImageUrl} className="bg-blue text-white hover:bg-orange hover:text-blue text-lg " >Add new lavatory</button>
                     </div>
                 </form>
             </div>

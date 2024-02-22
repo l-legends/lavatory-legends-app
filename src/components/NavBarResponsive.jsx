@@ -13,27 +13,31 @@ function BurgerMenu() {
 
     return (
         <>
-            <div className="h-20">
+            <div className="flex justify-start ml-0 top-0 h-36 border-b-onyx border-opacity-10 border-b-2 content-center">
                 <nav>
-                    <div className="logoBurgerMenu">
+
+                    <div className="">
                         <Link to="/">
-                            <img src={logo} className="logo" />
+                            <img src={logo} className="h-24 w-auto hover:animate-pulse" />
                         </Link>
                     </div>
+
                     <div className="hidden sm:block">
-                        <div className="topNavigation">
-                            <Link className="NavLink" to="/">Home</Link>
-                            <Link className="NavLink" to="/about">About</Link>
-                            <Link className="NavLinkEnd" to="/lavatories/create">Create</Link>
+                        <div className="flex flex-end gap-6 divide-x-2  mt-8">
+                            <Link className="font-sanchez justify-center pl-5 text-blue hover:text-orange text-xl uppercase" to="/">Home</Link>
+                            <Link className="font-sanchez justify-center pl-5 text-blue hover:text-orange text-xl uppercase" to="/about">About</Link>
+                            <Link className="font-sanchez justify-center pl-5 text-blue hover:text-orange text-xl uppercase" to="/lavatories/create">Create</Link>
                         </div>
                     </div>
+
                     <div className="block sm:hidden">
-                        <div className="burgerMenu" onClick={updateMenu}>
-                            <div className="burgerLines" ></div>
-                            <div className="burgerLines" ></div>
-                            <div className="burgerLines" ></div>
-                        </div>
+                            <div className="burgerMenu" onClick={updateMenu}>
+                                <div className="burgerLines"></div>
+                                <div className="burgerLines"></div>
+                                <div className="burgerLines"></div>
+                            </div>
                     </div>
+                    
                 </nav>
                 {burgerMenuClicked && (
                     <div className="menu visible">
