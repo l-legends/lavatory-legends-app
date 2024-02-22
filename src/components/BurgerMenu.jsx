@@ -28,10 +28,10 @@ function BurgerMenu() {
                 </nav>
                 {burgerMenuClicked && (
                     <div className="menu visible">
-                        <button className="closeBurgerButton" onClick={updateMenu}>X</button>
-                        <Link className="burgerLink" to="/" onClick={updateMenu}>Home</Link>
-                        <Link className="burgerLink" to="/about" onClick={updateMenu}>About</Link>
-                        <Link className="burgerLink" to="/lavatories/create" onClick={updateMenu}>Create</Link>
+                        <button className="bg-blue font-sanchez p-2 rounded text-lg text-white mt-6 hover:bg-black hover:text-orange" onClick={updateMenu}>X</button>
+                        <Link className="flex items-center justify-center my-5 color-blue hover:text-onyx" to="/" onClick={updateMenu}>Home</Link>
+                        <Link className="flex items-center justify-center my-5 color-blue hover:text-onyx" to="/about" onClick={updateMenu}>About</Link>
+                        <Link className="flex items-center justify-center my-5 color-blue hover:text-onyx" to="/lavatories/create" onClick={updateMenu}>Create</Link>
                     </div>
                 )}
             </div>

@@ -91,19 +91,22 @@ function SearchBar() {
 
     return (
         <div>
-            <div className="flex justify-center items-center">
-                <input
-                    type="text"
-                    placeholder="Search for a legend..."
-                    onChange={handleSearch}
-                    onKeyPress={handleSearchButton}
-                    class="block p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg dark:bg-gray-700"
-                />
-                <button onClick={handleSearchButton}>
-                    <img className="size-10 bg-white" src={SearchIcon} />
-                </button>
-                <br />
+            <div className="flex justify-center">
+                <div className="flex justify-center items-center p-2 w-1/2 bg-white text-md text-gray-900 border border-gray-300 rounded-lg dark:bg-gray-700">
+                    <input
+                        type="text"
+                        placeholder="Search for a legend..."
+                        onChange={handleSearch}
+                        onKeyPress={handleSearchButton}
+                        class="block p-1 text-sm text-gray-900 dark:bg-gray-700"
+                    />
+                    <button onClick={handleSearchButton}>
+                        <img className="size-5 ml-2 bg-white" src={SearchIcon} alt="Search Icon" />
+                    </button>
+                    <br />
+                </div>
             </div>
+
             <div className="search-results">
                 {search === "" // empty search
                     ? null
