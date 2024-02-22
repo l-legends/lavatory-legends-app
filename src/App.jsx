@@ -33,7 +33,7 @@ function App() {
         <Route path="/lavatories/:id" element={<DetailsPage />} />
         <Route path="/lavatories/tag/:tag" element={<FilterByTagPage />} />
         <Route path="/lavatories/edit/:id" element={<EditToilet />} />
-        <Route path="/lavatories/create/:id" element={<AddToilet />} />
+        <Route path="/lavatories/create" element={<AddToilet />} />
         <Route path="/*" element={<NotFoundPage beerCount={beerCount} setBeerCount={setBeerCount}/>} />
       </Routes>
       <Footer />
