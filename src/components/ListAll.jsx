@@ -28,30 +28,31 @@ function ListAll() {
 
     return (
         <>
-           
-        <div className="lavatory-body">
 
-            {lavatories === null
-                ? <p>Lavatories loading</p>
-                : lavatories.map((lavatory) => {
-                    return (
-                        <div key={lavatory.id} className="lavatory-card">
-                            <Link to={`/lavatories/${lavatory.id}`}>
-                                <img src={lavatory.imageURL} />
-                                <h2>{lavatory.title}</h2>
-                                <p>{lavatory.description}</p>
-                                <p>{lavatory.location.country}</p>
-                            </Link>
-                        </div>
+            <div className="lavatory-body grid-cols-1 md:grid-cols-3">
 
-                    )
-                })
-            }
+                {lavatories === null
+                    ? <p>Lavatories loading</p>
+                    : lavatories.map((lavatory) => {
+                        return (
+                            <div>
+                                <div key={lavatory.id} className="grid py-2 m-4 bg-onyx bg-opacity-5 hover:border-black hover:border rounded-lg">
+                                    <Link to={`/lavatories/${lavatory.id}`}>
+                                        <img src={lavatory.imageURL} />
+                                        <h2 className="text-2xl text-grey font-league py-2">{lavatory.title}</h2>
+                                        <p className="hidden sm:block">{lavatory.description}</p>
+                                        <p className="text-sm font-sanchez py-1 italic">{lavatory.location.country}</p>
+                                    </Link>
+                                </div>
+                            </div>
+                        )
+                    })
+                }
 
 
 
 
-        </div>
+            </div>
         </>
     )
 }
