@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import './App.css'
-import NavBar from './components/NavBar';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import DetailsPage from './pages/DetailsPage';
@@ -12,7 +11,7 @@ import FilterByTagPage from './pages/FilteredTagsPage';
 import Footer from "./components/Footer";
 import ListAll from './components/ListAll';
 import SearchBar from './components/Searchbar';
-import BurgerMenu from './components/BurgerMenu'
+import NavBarResponsive from './components/NavBarResponsive'
 
 
 
@@ -25,8 +24,7 @@ function App() {
 
   return (
     <>
-      <NavBar />
-      <BurgerMenu />
+      <NavBarResponsive />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage beerCount={beerCount}/>} />

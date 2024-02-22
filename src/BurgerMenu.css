@@ -54,7 +54,7 @@ nav {
 }
 
   .logoBurgerMenu img {
-    height: 4em;
+    height: 5em;
     width: fit-content;
   }
 
@@ -71,7 +71,7 @@ nav {
     padding: 10px;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 100vw) {
     nav {
         display: flex; 
         justify-content: flex-end;

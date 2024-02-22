@@ -20,10 +20,19 @@ function BurgerMenu() {
                             <img src={logo} className="logo" />
                         </Link>
                     </div>
-                    <div className="burgerMenu" onClick={updateMenu}>
-                        <div className="burgerLines" ></div>
-                        <div className="burgerLines" ></div>
-                        <div className="burgerLines" ></div>
+                    <div className="hidden sm:block">
+                        <div className="topNavigation">
+                            <Link className="NavLink" to="/">Home</Link>
+                            <Link className="NavLink" to="/about">About</Link>
+                            <Link className="NavLinkEnd" to="/lavatories/create">Create</Link>
+                        </div>
+                    </div>
+                    <div className="block sm:hidden">
+                        <div className="burgerMenu" onClick={updateMenu}>
+                            <div className="burgerLines" ></div>
+                            <div className="burgerLines" ></div>
+                            <div className="burgerLines" ></div>
+                        </div>
                     </div>
                 </nav>
                 {burgerMenuClicked && (
