@@ -10,7 +10,6 @@ function HomePage() {
             <h1> Welcome to the Lavatory Parade </h1>
             <p>Discover the legendary lavatories
             <br/>Search for the most special ones
-            <br/>Rate your favorites
             <br/>Add your own legend</p>
             <ListAll />
         </>

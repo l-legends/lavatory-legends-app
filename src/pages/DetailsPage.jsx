@@ -6,6 +6,8 @@ import EditToilet from "../components/EditToilet";
 import FilterByTags from "../components/FilterByTags";
 import BackIcon from "../img/back-btn.png";
 import DeleteIcon from "../img/trash-btn.png";
+import LocationIcon from "../img/location-icon.png";
+import PlaceIcon from "../img/place-icon.png";
 
 
 function DetailsPage() {
@@ -52,9 +54,9 @@ function DetailsPage() {
                     ? <p>Lavatories loading...</p>
                     : (
                         <>
-                            <button className="back-btn">
+                            <button className="flex justify-items-start">
                             <Link to={'/'}>
-                                <img src={BackIcon} />
+                                <img className="flex size-10" src={BackIcon} />
                             </Link>
                             </button>
 
@@ -67,15 +69,18 @@ function DetailsPage() {
                             ))}
                             <h1>{lavatory.title}</h1>
                             <p>{lavatory.description}</p>
-                            <p>{lavatory.location.place}</p>
-                            <p>{lavatory.location.city}</p>
-                            <p>{lavatory.location.country}</p>
+                            <div className="flex gap-3">
+                            <img src={PlaceIcon} className="h-6 w-6" /> <p> {lavatory.location.place}</p>
+                            </div>
+                            <div className="flex gap-3">
+                            <img src={LocationIcon} className="h-6 w-5" /> <p> {lavatory.location.city}, {lavatory.location.country}</p>
+                            </div>
                             <Link to={`/lavatories/edit/${lavatory.id}`}>
                                 <button>
                                     <img className="edit-btn" src={editbtn} />
                                 </button>
                             </ Link>
-                            <button className="Delete" onClick={handleDelete}>
+                            <button className="size-10" onClick={handleDelete}>
                                 <img src={DeleteIcon} />
                             </button>
                         </>
