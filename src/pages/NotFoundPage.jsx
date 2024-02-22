@@ -1,9 +1,8 @@
 import React from 'react'
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-//import Pauline from '../img/pauline-about.png';
-//import Simona from '../img/simona-about.png';
-import GitHub from '../img/github-logo.png';
+import Pauline from '../img/pauline-about.png';
+import Simona from '../img/simona-about.png';
 
 function NotFound( { beerCount, setBeerCount} ) {
 
@@ -27,18 +26,20 @@ function NotFound( { beerCount, setBeerCount} ) {
     return (
         <div className="NotFoundPage">
                 <h1>We messed up, meow!</h1>
-                <p>Blame who's in charge. The other one gets a free beer.</p>
+                <p>Blame who's in charge. The other one gets a free toilet roll.</p>
                 <div className="NotFoundConatiner">
                     <div className="Pauline404">
-                        <img src={GitHub} alt="Pauline" onClick={handlePaulineClick} />
-                        <p>Pauline owes Simona {clickCountPauline} beer(s).</p>
+                        <img src={Pauline} alt="Pauline" onClick={handlePaulineClick} />
+                        <p>Pauline owes Simona {clickCountPauline} toilet roll(s).</p>
                     </div>
                     <div className="Simona404">
-                        <img src={GitHub} alt="Simona" onClick={handleSimonaClick} />
-                        <p>Simona owes Pauline {clickCountSimona} beer(s).</p>
+                        <img src={Simona} alt="Simona" onClick={handleSimonaClick} />
+                        <p>Simona owes Pauline {clickCountSimona} toilet roll(s).</p>
                     </div>
-                </div>   
-                <Link to="/">Let's go back to discover all lavatories</Link>
+                </div>
+                <Link to="/about"> >> Check out the score</Link>   
+                <br />
+                <Link to="/"> >> Let's go back to discover all lavatories</Link>
         </div>
     );
 }
