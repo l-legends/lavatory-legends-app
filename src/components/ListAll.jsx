@@ -28,11 +28,7 @@ function ListAll() {
 
     return (
         <>
-        <SearchBar />
-        <br />
-        <h2>Discover your favorite</h2>
-        <FilterByTags />
-        
+           
         <div className="lavatory-body">
 
             {lavatories === null

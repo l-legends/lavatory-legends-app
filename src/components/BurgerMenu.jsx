@@ -13,7 +13,7 @@ function BurgerMenu() {
 
     return (
         <>
-            <div>
+            <div className="mobileNavigation">
                 <nav>
                     <div className="logoBurgerMenu">
                         <Link to="/">
@@ -31,7 +31,7 @@ function BurgerMenu() {
                         <button className="closeBurgerButton" onClick={updateMenu}>X</button>
                         <Link className="burgerLink" to="/" onClick={updateMenu}>Home</Link>
                         <Link className="burgerLink" to="/about" onClick={updateMenu}>About</Link>
-                        <Link className="burgerLink" to="/lavatories/create/:id" onClick={updateMenu}>Create</Link>
+                        <Link className="burgerLink" to="/lavatories/create" onClick={updateMenu}>Create</Link>
                     </div>
                 )}
             </div>

@@ -6,7 +6,6 @@
   background-color: whitesmoke;
 }
 
-
 .header {
   display: flex;
   flex-direction: row;
@@ -14,6 +13,21 @@
   align-items: center;
   border-bottom: 1px solid #000;
   width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+  .header {
+    display: none;
+  }
+}
+
+.hero {
+  background-image: url('./img/lavatory-legends-pacman-toilet.webp'); 
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  padding: 100px 0;
+  height: 100vh;
 }
 
 p {

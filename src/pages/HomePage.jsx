@@ -1,17 +1,28 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ListAll from "../components/ListAll";
+import SearchBar from "../components/Searchbar";
 import FilterByTags from "../components/FilterByTags";
 
 function HomePage() {
 
     return (
         <>
-            <h1> Welcome to the Lavatory Parade </h1>
-            <p>Discover the legendary lavatories
-            <br/>Search for the most special ones
-            <br/>Add your own legend</p>
-            <ListAll />
+          <section className="hero">
+                <h1 className="text-5xl text-white font-league"> Welcome to the Lavatory Parade </h1>
+                <br />
+                <p className="text-white">
+                    Discover the legendary lavatories.
+                    <br />Search for the most special ones.
+                    </p>
+                    <br />
+                <SearchBar />
+            </section>
+            <section>
+                <h2>Discover your favorite</h2>
+                <FilterByTags />
+                <ListAll />
+            </section>
         </>
     );
 }

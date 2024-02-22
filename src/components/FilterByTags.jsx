@@ -43,7 +43,7 @@ function FilterByTags() {
             <div className="lavatory-body">
                 {tagToFilter.map((tag, index) => (
                     <Link key={index} to={`/lavatories/tag/${tag}`}>
-                        <label className="tagsOnDetailPage">{tag}</label>
+                        <label className="bg-blue font-sanchez p-2 rounded text-lg text-white hover:bg-orange hover:text-blue">{tag}</label>
                     </Link>
                 ))}
             </div>
