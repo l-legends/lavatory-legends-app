@@ -24,7 +24,7 @@ function AboutPage ({ beerCount }) {
             </div>
             <h5>The one who breaks the code</h5>
             <p>Social Sciences Uni Student, UX/UI Designer, Web Developer, Meme Queen</p>
-            <p>Pauline owes Simona {beerCount.pauline} beer(s).</p>
+            <p>Pauline owes Simona {beerCount.pauline} toilet roll(s).</p>
             <br/>
             
         </div>
@@ -39,7 +39,7 @@ function AboutPage ({ beerCount }) {
             </div>
             <h5>The one who fixes the code</h5>
             <p>Marketing & SEO Specialist, Web Developer, Yoga Teacher, Kombucha Addict</p>
-            <p>Simona owes Pauline {beerCount.simona} beer(s).</p>
+            <p>Simona owes Pauline {beerCount.simona} toilet roll(s).</p>
             <br/>
             
         </div>
