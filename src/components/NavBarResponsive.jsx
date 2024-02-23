@@ -13,12 +13,12 @@ function BurgerMenu() {
 
     return (
         <>
-            <div className="flex  ml-0 top-0 h-36 border-b-onyx border-opacity-10 border-b-2 content-center">
+            <div className="flex ml-0 top-0 h-28 border-b-onyx border-opacity-10 border-b-2 content-center">
                 <nav className='flex justify-between '>
 
                     <div className="justify-start">
                         <Link to="/">
-                            <img src={logo} className="h-24 w-auto hover:animate-pulse" />
+                            <img src={logo} className="h-20 w-auto hover:animate-pulse" />
                         </Link>
                     </div>
 
@@ -29,22 +29,26 @@ function BurgerMenu() {
                             <Link className="font-sanchez justify-center pl-5 text-blue hover:text-orange text-xl uppercase" to="/lavatories/create">Create</Link>
                         </div>
                     </div>
-
-                    <div className="block sm:hidden">
-                            <div className="burgerMenu" onClick={updateMenu}>
-                                <div className="burgerLines"></div>
-                                <div className="burgerLines"></div>
-                                <div className="burgerLines"></div>
-                            </div>
+<div className="block sm:hidden">
+                        <div className="burgerMenu" onClick={updateMenu}>
+                            <div className="burgerLines"></div>
+                            <div className="burgerLines"></div>
+                            <div className="burgerLines"></div>
+                        </div>
                     </div>
-                    
+                   
+
                 </nav>
                 {burgerMenuClicked && (
                     <div className="menu visible">
-                        <button className="bg-blue font-sanchez p-2 rounded text-lg text-white mt-6 hover:bg-black hover:text-orange" onClick={updateMenu}>X</button>
-                        <Link className="flex items-center justify-center my-5 color-blue hover:text-onyx" to="/" onClick={updateMenu}>Home</Link>
-                        <Link className="flex items-center justify-center my-5 color-blue hover:text-onyx" to="/about" onClick={updateMenu}>About</Link>
-                        <Link className="flex items-center justify-center my-5 color-blue hover:text-onyx" to="/lavatories/create" onClick={updateMenu}>Create</Link>
+                        <div className="flex justify-end pr-10">
+                            <button className="bg-blue font-sanchez p-2 rounded text-lg text-white mt-6 hover:bg-black hover:text-orange" onClick={updateMenu}>X</button>
+                        </div>
+                        <div>
+                            <Link className="font-sanchez flex items-center justify-center my-10 text-blue hover:text-orange text-xl" to="/" onClick={updateMenu}>Home</Link>
+                            <Link className="font-sanchez flex items-center justify-center my-10 text-blue hover:text-orange text-xl" to="/about" onClick={updateMenu}>About</Link>
+                            <Link className="font-sanchez flex items-center justify-center my-10 text-blue hover:text-orange text-xl" to="/lavatories/create" onClick={updateMenu}>Create</Link>
+                        </div>
                     </div>
                 )}
             </div>

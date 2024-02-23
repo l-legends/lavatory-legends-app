@@ -4,18 +4,22 @@
 }
 
 nav {
+
     width: 100%;
     height: 5em;
-    padding: 1.2em;
+    padding-left: 1.2em;
+    padding-right: 1.2em;
+    padding-top: 0.5em;
 }
 
 .burgerMenu {
     height: 100%;
-    width: 5em;
+    width: em;
+    padding-right: 10px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
+    align-items: flex-end;
+    justify-content: space-evenly;
     cursor: pointer;
 }
 
@@ -53,7 +57,7 @@ nav {
 }
 
   .logoBurgerMenu img {
-    height: 5em;
+    height: 4em;
     width: fit-content;
   }
 

@@ -36,7 +36,7 @@ function ListAll() {
                     : lavatories.map((lavatory) => {
                         return (
                             <div key={lavatory.id} >
-                                <div className="grid py-2 px-1 my-5 bg-greyish hover:border-black hover:border rounded-lg">
+                                <div className="grid py-2 px-1 my-5 bg-onyx bg-opacity-10 hover:border-black hover:border rounded-lg">
                                     <Link to={`/lavatories/${lavatory.id}`}className="flex flex-col h-full">
                                         <img className="object-cover h-96 rounded-lg" src={lavatory.imageURL} alt="{lavatory.title}"/>  
                                         <h3 className="text-2xl h-20 text-grey font-league py-2">{lavatory.title}</h3>

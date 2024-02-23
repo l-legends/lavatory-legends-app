@@ -37,21 +37,27 @@ function FilterByTagPage() {
                     ? <p>Lavatories loading</p>
                     : lavatoriesWithTag.map((lavatory) => {
                         return (
-                            <div key={lavatory.id} className="grid py-2 px-1 my-5 bg-greyish hover:border-black hover:border rounded-lg">
+                            <div key={lavatory.id} className="grid py-2 px-1 my-5 bg-onyx bg-opacity-10 hover:border-black hover:border rounded-lg">
                                 <Link to={`/lavatories/${lavatory.id}`} className="flex flex-col h-full">
                                     <img className="object-cover h-96 rounded-lg" src={lavatory.imageURL} />
                                     <h3 className="text-2xl h-20 text-grey font-league py-2">{lavatory.title}</h3>
                                     <p className="hidden sm:block text-xs md:h-12 font-sanchez py-1">{lavatory.description}</p>
                                     <p className="text-sm font-sanchez py-1">{lavatory.location.country}</p>
                                 </Link>
-                            </div>
-
+                            </div>           
                         )
                     })
                 }
 
             </div>
-
+            <div className="flex justify-center flex-row mb-10">
+                                <Link to={'/'}>
+                                    <button className="flex ml-1/5  items-center hover:bg-onyx hover:bg-opacity-5 hover:border-white">
+                                        <img className="flex size-10  hover:text-onyx" src={BackIcon} />
+                                        <p className="flex ml-4 color-blue  hover:text-onyx">Back to all Lavatories</p>
+                                    </button>
+                                </Link>
+                            </div>
         </>
     );
 }

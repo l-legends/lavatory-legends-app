@@ -56,22 +56,19 @@ function DetailsPage() {
                         <>
                             <br />
                             <div className="flex justify-start flex-row ml-10">
-                            <Link to={'/'}>
-                                <button className="flex ml-1/5  items-center hover:bg-onyx hover:bg-opacity-5 hover:border-white">
-                                    <img className="flex size-10  hover:text-onyx" src={BackIcon} />
-                                    <p className="flex ml-4 color-blue  hover:text-onyx">Back to Lavatories</p>
-                                </button>
-                            </Link>
-
-                            
-                           
+                                <Link to={'/'}>
+                                    <button className="flex ml-1/5  items-center hover:bg-onyx hover:bg-opacity-5 hover:border-white">
+                                        <img className="flex size-10  hover:text-onyx" src={BackIcon} />
+                                        <p className="flex ml-4 color-blue  hover:text-onyx">Back to Lavatories</p>
+                                    </button>
+                                </Link>
                             </div>
 
 
                             <div className="flex justify-center">
                                 <img className="size-2/5" src={lavatory.imageURL} />
                             </div>
-                            
+
                             <br />
                             <div className="flex justify-center gap-5">
                                 {lavatory.tags.map((tag, index) => (
