@@ -26,29 +26,29 @@ function EditToilet() {
 
     const handleChange = (event) => {
         const { name, value } = event.target;
-        setEditLavatory((prevLavatory) => {
 
-            if (name.includes('.')) {
-                const [parent, child] = name.split('.');
+        if (name === "tags") { // tags
+            setTagsString(value);
+            setEditLavatory((prevLavatory) => ({
+                ...prevLavatory,
+                tags: value.split(",").map(e => e.trim())
+            }));
+        } else if (name.includes('.')) { // nested fields (place, city, country)
+            const [parent, child] = name.split('.');
+
+            setEditLavatory((prevLavatory) => {
                 return {
                     ...prevLavatory,
-
                     [parent]: {
                         ...prevLavatory[parent],
                         [child]: value
                     }
                 };
-            } else {
+            });
+        } else {
+            setEditLavatory((prevLavatory) => {
                 return { ...prevLavatory, [name]: value };
-            }
-        });
-
-        if (name === "tags") {
-            setTagsString(value);
-            setEditLavatory((prevLavatory) => ({
-                ...prevLavatory,
-                tags: value.split(",").map(tag => tag.trim()).join(', ')
-            }));
+            });
         }
     };
 
