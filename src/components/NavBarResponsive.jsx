@@ -16,7 +16,7 @@ function BurgerMenu() {
             <div className="flex  ml-0 top-0 h-36 border-b-onyx border-opacity-10 border-b-2 content-center">
                 <nav className='flex justify-between '>
 
-                    <div className="justify-start">
+                    <div className="">
                         <Link to="/">
                             <img src={logo} className="h-24 w-auto hover:animate-pulse" />
                         </Link>
