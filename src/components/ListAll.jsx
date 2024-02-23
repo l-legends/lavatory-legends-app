@@ -36,10 +36,10 @@ function ListAll() {
                     : lavatories.map((lavatory) => {
                         return (
                             <div key={lavatory.id} >
-                                <div className="grid py-2 px-1 my-5 bg-onyx bg-opacity-5 hover:border-black hover:border rounded-lg">
+                                <div className="grid py-2 px-1 my-5 bg-greyish hover:border-black hover:border rounded-lg">
                                     <Link to={`/lavatories/${lavatory.id}`}className="flex flex-col h-full">
                                         <img className="object-cover h-96 rounded-lg" src={lavatory.imageURL} alt="{lavatory.title}"/>  
-                                        <h3 className="text-2xl md:h-20 text-grey font-league py-2">{lavatory.title}</h3>
+                                        <h3 className="text-2xl h-20 text-grey font-league py-2">{lavatory.title}</h3>
                                         <p className="hidden sm:block text-xs md:h-12 font-sanchez py-1">{lavatory.description}</p>
                                         <p className="text-sm font-sanchez py-1">{lavatory.location.country}</p>
                                     </Link>
