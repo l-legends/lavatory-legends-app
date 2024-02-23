@@ -1,10 +1,8 @@
 # Welcome to the Lavatory Parade
 ## Quick Facts
-<p>
 - Discover unusual and legendary lavatories.
 - Search for the most specials, or the closest from you.
 - Add you own legend, edit the existing ones.
-</p>
 
 
 ## Description
@@ -13,6 +11,7 @@
 ## Instructions
 
 <p>Clone this repo to your local</p>
+
 ```
 git clone
 ```
@@ -34,6 +33,7 @@ VITE_UNSIGNED_UPLOAD_PRESET=bhbqx4qh<br>
 </p>
 
 <p>Run the application on your localhost</p>
+
 ```
 npm run dev
 ```
