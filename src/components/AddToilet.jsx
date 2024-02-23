@@ -53,7 +53,6 @@ function AddToiletForm() {
             .catch((e) => {
                 console.error(e);
             });
-
     };
 
 
