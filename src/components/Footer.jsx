@@ -8,7 +8,7 @@ function Footer() {
 
     return (
         <>
-            <div className="w-full flex justify-between items-center bottom-0 flex-row border-t-onyx border-opacity-10 border-t-2 h-24 static">
+            <div className="w-full flex justify-between items-center bottom-0 flex-row border-t-onyx border-opacity-10 border-t-2 h-24 static pl-4">
                 
                 
                 <Link to="/">
@@ -21,7 +21,7 @@ function Footer() {
                 </div>
                 
 
-                <div className="flex flex-end">
+                <div className="flex flex-end pr-4">
                 <Link to="https://github.com/l-legends/lavatory-legends-app">
                     <img src={github} alt="GitHub Logo" className="size-10"/>
                 </Link>
