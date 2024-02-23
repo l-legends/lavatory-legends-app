@@ -182,18 +182,6 @@ function AddToiletForm() {
                             </label>
                         </div>
 
-                        {/*} <div className="addToiletFormElements"> // If we work with the imgURL
-                        <label>Image
-                            <br />
-                            <input
-                                type="text"
-                                name="imageURL"
-                                placeholder="Place the URL here, e.g.https://my-foto.com"
-                                value={imageURL}
-                                onChange={handleImageURL}
-                            />
-                        </label>
-    </div> */}
                         <br />
                         <button className="text-white border border-orange py-2 px-7 bg-orange" type="submit" disabled={waitingForImageUrl} >Add new lavatory</button>
                     </div>
