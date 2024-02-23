@@ -65,12 +65,12 @@ function DetailsPage() {
                             </div>
 
 
-                            <div className="flex justify-center">
+                            <div className="flex justify-center pb-2">
                                 <img className="size-2/5" src={lavatory.imageURL} />
                             </div>
 
                             <br />
-                            <div className="flex justify-center gap-5">
+                            <div className="flex justify-center py-4 gap-5">
                                 {lavatory.tags.map((tag, index) => (
 
                                     <Link key={index} to={`/lavatories/tag/${tag}`}>
@@ -98,7 +98,7 @@ function DetailsPage() {
                             <br />
                             <br />
                             <br />
-                            <div className="flex justify-center flex-row gap-6 items-center content-center">
+                            <div className="flex justify-center flex-row py-4 gap-6 items-center content-center">
                                 <Link to={`/lavatories/edit/${lavatory.id}`}>
                                     <button className="flex size-14  hover:bg-onyx hover:bg-opacity-5 hover:border-white">
                                         <img src={editbtn} />
