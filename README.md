@@ -49,6 +49,11 @@ https://lavatory-legends.netlify.app/ </p>
 <p>If you're lost, here's the path back to be a legend:  <br>
 https://trello.com/b/ggXWCtFA/react-project-m2 </p>
 
+
+## Presentation
+
+<p>https://www.canva.com/design/DAF9mr3b2Sw/BxqLr8slTqSQ8iXQinqeOA/view?utm_content=DA[…]2Sw&utm_campaign=designshare&utm_medium=link&utm_source=editor </p>
+
 ## Moodboard
 
 ![Moodboard](./src/img/lavatory-legends-moodboard.png)
