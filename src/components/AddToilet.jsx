@@ -53,7 +53,6 @@ function AddToiletForm() {
             .catch((e) => {
                 console.error(e);
             });
-
     };
 
 
@@ -89,92 +88,101 @@ function AddToiletForm() {
 
     return (
         <>
-            <div className="addToiletForm rounded-lg pb-20">
+            <div className="addToiletForm rounded-lg pb-20 my-20">
                 <form onSubmit={handleSubmit}>
-                <div className="space-y-5 ">
-                    <div className="addToiletFormElements">
-                        <label className="block text-lg font-md text-white p-3">Name
-                            <br />
-                            <input
-                                type="text"
-                                name="title"
-                                placeholder="Add a title, e.g. comfy toilet"
-                                value={title}
-                                onChange={handleTitle}
-                            />
-                        </label>
-                    </div>
-                    <div className="addToiletFormElements">
-                        <label className="block text-lg font-md text-white p-3">Description
-                            <br />
-                            <input
-                                type="textarea"
-                                name="description"
-                                placeholder="Add a description ~ 100 words"
-                                value={description}
-                                onChange={handleDescription}
-                            />
-                        </label>
-                    </div>
-                    <div className="addToiletFormElements">
-                        <label className="block text-lg font-md text-white p-3">Place
-                            <br />
-                            <input
-                                type="text"
-                                name="locationPlace"
-                                placeholder="In which bar/restaurant/place is this toilet?"
-                                value={locationPlace}
-                                onChange={handleLocationPlace}
-                            />
-                        </label>
-                    </div>
-                    <div className="addToiletFormElements">
-                        <label className="block text-lg font-md text-white p-3">City
-                            <br />
-                            <input
-                                type="text"
-                                name="locationCity"
-                                placeholder="Add the city here"
-                                value={locationCity}
-                                onChange={handleLocationCity}
-                            />
-                        </label>
-                    </div>
-                    <div className="addToiletFormElements">
-                        <label className="block text-lg font-md text-white p-3">Country
-                            <br />
-                            <input
-                                type="text"
-                                name="locationCountry"
-                                placeholder="Add the country here"
-                                value={locationCountry}
-                                onChange={handleLocationCountry}
-                            />
-                        </label>
-                    </div>
-                    <div className="addToiletFormElements">
-                        <label className="block text-lg font-md text-white p-3">Tags
-                            <br />
-                            <input
-                                type="text"
-                                name="tags"
-                                placeholder="Add tags, separated by comma"
-                                value={tags}
-                                onChange={handleTags}
-                            />
-                        </label>
-                    </div>
-                    <div className="addToiletFormElements">
-                        <label className="block text-lg font-md text-white p-3">Image
-                            <br />
-                            <input
-                                type="file"
-                                name="imageURL"
-                                onChange={(e) => handleFileUpload(e)}
-                            />
-                        </label>
-                    </div>
-                    {/*} <div className="addToiletFormElements"> // If we work with the imgURL
+                    <div className="space-y-5 ">
+                        <div className="grid grid-cols-1 md:grid-cols-2">
+                            <div className="addToiletFormElements">
+                                <label className="block text-lg font-md text-white p-3">Name
+                                    <br />
+                                    <input
+                                        type="text"
+                                        name="title"
+                                        placeholder="Add a title, e.g. comfy toilet"
+                                        value={title}
+                                        onChange={handleTitle}
+                                    />
+                                </label>
+                            </div>
+                            <div className="addToiletFormElements">
+                                <label className="block text-lg font-md text-white p-3">Tags
+                                    <br />
+                                    <input
+                                        type="text"
+                                        name="tags"
+                                        placeholder="Add tags, separated by comma"
+                                        value={tags}
+                                        onChange={handleTags}
+                                    />
+                                </label>
+                            </div>
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2">
+                            <div className="addToiletFormElements">
+                                <label className="block text-lg font-md text-white p-3">Description
+                                    <br />
+                                    <textarea
+                                        type="text"
+                                        name="description"
+                                        placeholder="Add a description ~ 100 words"
+                                        value={description}
+                                        onChange={handleDescription}
+                                        className="rounded-lg"
+                                    />
+                                </label>
+                            </div>
+                            <div className="addToiletFormElements">
+                                <label className="block text-lg font-md text-white p-3">Place
+                                    <br />
+                                    <input
+                                        type="text"
+                                        name="locationPlace"
+                                        placeholder="In which bar/restaurant/place is this toilet?"
+                                        value={locationPlace}
+                                        onChange={handleLocationPlace}
+                                    />
+                                </label>
+                            </div>
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2">
+                            <div className="addToiletFormElements">
+                                <label className="block text-lg font-md text-white p-3">City
+                                    <br />
+                                    <input
+                                        type="text"
+                                        name="locationCity"
+                                        placeholder="Add a city here"
+                                        value={locationCity}
+                                        onChange={handleLocationCity}
+                                    />
+                                </label>
+                            </div>
+                            <div className="addToiletFormElements">
+                                <label className="block text-lg font-md text-white p-3">Country
+                                    <br />
+                                    <input
+                                        type="text"
+                                        name="locationCountry"
+                                        placeholder="Add a country here"
+                                        value={locationCountry}
+                                        onChange={handleLocationCountry}
+                                    />
+                                </label>
+                            </div>
+                        </div>
+
+                        <div className="addToiletFormElements flex justify-center">
+                            <label className="block text-lg font-md text-white p-3">Image Upload
+                                <br />
+                                <input
+                                    type="file"
+                                    name="imageURL"
+                                    onChange={(e) => handleFileUpload(e)}
+                                />
+                            </label>
+                        </div>
+
+                        {/*} <div className="addToiletFormElements"> // If we work with the imgURL
                         <label>Image
                             <br />
                             <input
@@ -186,8 +194,8 @@ function AddToiletForm() {
                             />
                         </label>
     </div> */}
-                    <br />
-                    <button className="text-white border border-orange py-2 px-7 bg-orange" type="submit" disabled={waitingForImageUrl} >Add new lavatory</button>
+                        <br />
+                        <button className="text-white border border-orange py-2 px-7 bg-orange" type="submit" disabled={waitingForImageUrl} >Add new lavatory</button>
                     </div>
                 </form>
             </div>

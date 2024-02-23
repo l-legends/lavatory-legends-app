@@ -10,6 +10,7 @@ export default {
       'orange': '#CE6C47',
       'onyx': '#454545',
       'white': '#F5F5F5',
+      'greyish': '#CECFC7',
     },
     extend: {
       fontFamily: {
